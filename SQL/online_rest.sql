@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adm_id`, `username`, `password`, `email`, `code`, `date`) VALUES
-(6, 'admin', '81dc9bdb52d04dc20036dbd8313ed055', 'admin@gmail.com', '', '2018-04-09 07:36:18');
+(6, 'admin', '81dc9bdb52d04dc20036dbd8313ed055', 'admin@gmail.com', '', '2023-03-07 07:36:18');
 
 -- --------------------------------------------------------
 
@@ -113,13 +113,11 @@ CREATE TABLE `remark` (
 --
 
 INSERT INTO `remark` (`id`, `frm_id`, `status`, `remark`, `remarkDate`) VALUES
-(62, 32, 'in process', 'hi', '2018-04-18 17:35:52'),
-(63, 32, 'closed', 'cc', '2018-04-18 17:36:46'),
-(64, 32, 'in process', 'fff', '2018-04-18 18:01:37'),
-(65, 32, 'closed', 'hi', '2018-04-18 18:08:55'),
-(66, 34, 'in process', 'on a way', '2018-04-18 18:56:32'),
-(67, 35, 'closed', 'ok', '2018-04-18 18:59:08'),
-(68, 37, 'in process', 'đồ ăn đang tới', '2018-04-18 19:50:06');
+(62, 32, 'in process', 'hi', '2023-03-03 17:35:52'),
+(63, 32, 'closed', 'cc', '2023-03-03 17:36:46'),
+(64, 32, 'in process', 'fff', '2023-03-03 18:01:37'),
+(65, 32, 'closed', 'hi', '2023-03-03 18:08:55'),
+(66, 34, 'in process', 'on a way', '2023-03-03 18:56:32');
 
 -- --------------------------------------------------------
 
