@@ -2,12 +2,12 @@
 <html lang="en">
 <?php
 
-session_start(); //temp session
-error_reporting(0); // hide undefine index
-include("connection/connect.php"); // connection
-if(isset($_POST['submit'] )) //if submit btn is pressed
+session_start(); 
+error_reporting(0); 
+include("connection/connect.php");
+if(isset($_POST['submit'] ))
 {
-     if(empty($_POST['firstname']) ||  //fetching and find if its empty
+     if(empty($_POST['firstname']) ||  
    	    empty($_POST['lastname'])|| 
 		empty($_POST['email']) ||  
 		empty($_POST['phone'])||
@@ -19,57 +19,53 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
 		}
 	else
 	{
-		//cheching username & email if already present
+		//check user xem co bi trung` khong
 	$check_username= mysqli_query($db, "SELECT username FROM users where username = '".$_POST['username']."' ");
 	$check_email = mysqli_query($db, "SELECT email FROM users where email = '".$_POST['email']."' ");
 		
 
 	
-	if($_POST['password'] != $_POST['cpassword']){  //matching passwords
+	if($_POST['password'] != $_POST['cpassword']){  
        	$message = "Password not match";
     }
-	elseif(strlen($_POST['password']) < 6)  //cal password length
+	elseif(strlen($_POST['password']) < 6)  
 	{
 		$message = "Password Must be >=6";
 	}
-	elseif(strlen($_POST['phone']) < 10)  //cal phone length
+	elseif(strlen($_POST['phone']) < 10)  
 	{
 		$message = "invalid phone number!";
 	}
 
-    elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) // Validate email address
+    elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) 
     {
        	$message = "Invalid email address please type a valid email!";
     }
-	elseif(mysqli_num_rows($check_username) > 0)  //check username
+	elseif(mysqli_num_rows($check_username) > 0)  
      {
     	$message = 'username Already exists!';
      }
-	elseif(mysqli_num_rows($check_email) > 0) //check email
+	elseif(mysqli_num_rows($check_email) > 0) 
      {
     	$message = 'Email Already exists!';
      }
 	else{
        
-	 //inserting values into db
+	 //truy xuat du lieu trong database
 	$mql = "INSERT INTO users(username,f_name,l_name,email,phone,password,address) VALUES('".$_POST['username']."','".$_POST['firstname']."','".$_POST['lastname']."','".$_POST['email']."','".$_POST['phone']."','".md5($_POST['password'])."','".$_POST['address']."')";
 	mysqli_query($db, $mql);
 		$success = "Account Created successfully! <p>You will be redirected in <span id='counter'>5</span> second(s).</p>
-														<script type='text/javascript'>
-														function countdown() {
-															var i = document.getElementById('counter');
-															if (parseInt(i.innerHTML)<=0) {
-																location.href = 'login.php';
-															}
-															i.innerHTML = parseInt(i.innerHTML)-1;
-														}
-														setInterval(function(){ countdown(); },1000);
-														</script>'";
-		
-		
-		
-		
-		 header("refresh:5;url=login.php"); // redireted once inserted success
+      <script type='text/javascript'>
+      function countdown() {
+         var i = document.getElementById('counter');
+         if (parseInt(i.innerHTML)<=0) {
+            location.href = 'login.php';
+         }
+         i.innerHTML = parseInt(i.innerHTML)-1;
+      }
+      setInterval(function(){ countdown(); },1000);
+      </script>'";
+		 header("refresh:5;url=login.php"); 
     }
 	}
 

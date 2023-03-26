@@ -24,20 +24,20 @@
 <body>
 <?php
 include("connection/connect.php"); //INCLUDE CONNECTION
-error_reporting(0); // hide undefine index errors
-session_start(); // temp sessions
-if(isset($_POST['submit']))   // if button is submit
+error_reporting(0); 
+session_start(); 
+if(isset($_POST['submit']))   // neu ma button submit thi
 {
-	$username = $_POST['username'];  //fetch records from login form
+	$username = $_POST['username'];  
 	$password = $_POST['password'];
 	
 	if(!empty($_POST["submit"]))   // if records were not empty
      {
-	$loginquery ="SELECT * FROM users WHERE username='$username' && password='".md5($password)."'"; //selecting matching records
-	$result=mysqli_query($db, $loginquery); //executing
+	$loginquery ="SELECT * FROM users WHERE username='$username' && password='".md5($password)."'"; 
+	$result=mysqli_query($db, $loginquery);
 	$row=mysqli_fetch_array($result);
 	
-	                        if(is_array($row))  // if matching records in the array & if everything is right
+	                        if(is_array($row))  
 								{
                                     	$_SESSION["user_id"] = $row['u_id']; // put user id into temp session
 										 header("refresh:1;url=index.php"); // redirect to index.php page
@@ -78,13 +78,6 @@ if(isset($_POST['submit']))   // if button is submit
   <div class="cta">Not registered?<a href="registration.php" style="color:#f30;"> Create an account</a></div>
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-  
-
-   
-
-
-
 </body>
 
 </html>
