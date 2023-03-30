@@ -3,7 +3,7 @@
 <?php
 include("connection/connect.php");  //include connection file
 error_reporting(0);  // using to hide undefine undex errors
-session_start(); //start temp session until logout/browser closed
+session_start(); //start temp session until Logout/browser closed
 
 ?>
 <head>
@@ -48,8 +48,8 @@ session_start(); //start temp session until logout/browser closed
                         {
                                 //if user is login
                                 
-                                echo  '<li class="nav-item"><a href="your_orders.php" class="nav-link active">your orders</a> </li>';
-                                echo  '<li class="nav-item"><a href="logout.php" class="nav-link active">logout</a> </li>';
+                                echo  '<li class="nav-item"><a href="your_orders.php" class="nav-link active">Orders</a> </li>';
+                                echo  '<li class="nav-item"><a href="Logout.php" class="nav-link active">Logout</a> </li>';
                         }
 
                     ?>
@@ -62,7 +62,7 @@ session_start(); //start temp session until logout/browser closed
         <!-- /.navbar -->
     </header>
     <!-- banner part starts -->
-    <section class="hero bg-image" data-image-src="images/img/main1.jfif">
+    <section class="hero bg-image" data-image-src="images/img/food1.jpg">
         <div class="hero-inner">
             <div class="container text-center hero-text font-white">
                 <h1>Order Delivery & Take-Out </h1>
@@ -128,11 +128,13 @@ session_start(); //start temp session until logout/browser closed
                                         <div class="figure-wrap bg-image" data-image-src="admin/Res_img/dishes/'.$r['img'].'">
                                             <div class="distance"><i class="fa fa-pin"></i>1240m</div>
                                             </div>
-                                            <div class="rating pull-left"> 
-                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> 
-                                            </div>
-                                            <div class="review pull-right"><a href="#">198 reviews</a> </div>
+                                            <div class="rating rate"> 
+                                                <div>
+                                                    <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> 
+                                                </div>
+                                                    <a href="#">198 reviews</a> 
+                                                    </div>
                                         <div class="content">
                                             <h5><a href="dishes.php?res_id='.$r['rs_id'].'">'.$r['title'].'</a></h5>
                                             <div class="product-name">'.$r['slogan'].'</div>
@@ -315,7 +317,7 @@ session_start(); //start temp session until logout/browser closed
                 <!-- top footer statrs -->
                 <div class="row top-footer">
                     <div class="col-xs-12 col-sm-3 footer-logo-block color-gray">
-                        <a href="#"> <img src="images/koji.png" alt="Footer logo"> </a> <span>Order Delivery &amp; Take-Out </span> </div>
+                        <a href="#"> <img src="images/koji.png" alt="Footer logo" class="img-footer"> </a> <span>Order Delivery &amp; Take-Out </span> </div>
                     <div class="col-xs-12 col-sm-2 about color-gray">
                         <h5>About Us</h5>
                         <ul>
@@ -346,55 +348,29 @@ session_start(); //start temp session until logout/browser closed
                         </ul>
                     </div>
                     <div class="col-xs-12 col-sm-3 popular-locations color-gray">
-                        <h5>Popular locations</h5>
-                        <ul>
-                            <li><a href="#">Sarajevo</a> </li>
-                            <li><a href="#">Split</a> </li>
-                            <li><a href="#">Tuzla</a> </li>
-                            <li><a href="#">Sibenik</a> </li>
-                            <li><a href="#">Zagreb</a> </li>
-                            <li><a href="#">Brcko</a> </li>
-                            <li><a href="#">Beograd</a> </li>
-                            <li><a href="#">New York</a> </li>
-                            <li><a href="#">Gradacac</a> </li>
-                            <li><a href="#">Los Angeles</a> </li>
-                        </ul>
+                       <h5>Payment Options</h5>
+                            <ul>
+                                <li>
+                                    <a href="#"> <img src="images/paypal.png" alt="Paypal">  Paypal</a>
+                                </li>
+                                <li>
+                                    <a href="#"> <img src="images/mastercard.png" alt="Mastercard">  Mastercard </a>
+                                </li>
+                                <li>
+                                    <a href="#"> <img src="images/maestro.png" alt="Maestro"> Maestro </a>
+                                </li>
+                                <li>
+                                    <a href="#"> <img src="images/stripe.png" alt="Stripe">  Stripe </a>
+                                </li>
+                                <li>
+                                    <a href="#"> <img src="images/bitcoin.png" alt="Bitcoin">  Bitcoin </a>
+                                </li>
+                            </ul>
                     </div>
                 </div>
                 <!-- top footer ends -->
                 <!-- bottom footer statrs -->
-                <div class="bottom-footer">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-3 payment-options color-gray">
-                            <h5>Payment Options</h5>
-                            <ul>
-                                <li>
-                                    <a href="#"> <img src="images/paypal.png" alt="Paypal"> </a>
-                                </li>
-                                <li>
-                                    <a href="#"> <img src="images/mastercard.png" alt="Mastercard"> </a>
-                                </li>
-                                <li>
-                                    <a href="#"> <img src="images/maestro.png" alt="Maestro"> </a>
-                                </li>
-                                <li>
-                                    <a href="#"> <img src="images/stripe.png" alt="Stripe"> </a>
-                                </li>
-                                <li>
-                                    <a href="#"> <img src="images/bitcoin.png" alt="Bitcoin"> </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 address color-gray">
-                            <h5>Address</h5>
-                            <p>Concept design of oline food order and deliveye,planned as restaurant directory</p>
-                            <h5>Phone: <a href="tel:+080000012222">080 000012 222</a></h5> </div>
-                        <div class="col-xs-12 col-sm-5 additional-info color-gray">
-                            <h5>Addition informations</h5>
-                            <p>Join the thousands of other restaurants who benefit from having their menus on TakeOff</p>
-                        </div>
-                    </div>
-                </div>
+               
                 <!-- bottom footer ends -->
             </div>
         </footer>

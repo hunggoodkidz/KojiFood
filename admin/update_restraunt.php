@@ -326,7 +326,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
                             <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/users/5.jpg" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                               <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
+                               <li><a href="Logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </li>
