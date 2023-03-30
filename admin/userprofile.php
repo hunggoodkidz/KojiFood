@@ -5,7 +5,7 @@ error_reporting(0);
 session_start();
 if(strlen($_SESSION['user_id'])==0)
   { 
-header('location:login.php');
+header('location:../login.php');
 }
 else
 {
@@ -36,25 +36,16 @@ window.print();
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <title>Ela - Bootstrap Admin Dashboard Template</title>
-    <!-- Bootstrap Core CSS -->
+    <title>User Profile</title>
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link href="css/helper.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
-    <!--[if lt IE 9]>
-    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+
 <style type="text/css" rel="stylesheet">
 
 
@@ -72,34 +63,19 @@ window.print();
 }
 .panel-body {
   background: #e5e5e5;
-  /* Old browsers */
   background: -moz-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%);
-  /* FF3.6+ */
   background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #e5e5e5), color-stop(100%, #ffffff));
-  /* Chrome,Safari4+ */
   background: -webkit-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%);
-  /* Chrome10+,Safari5.1+ */
   background: -o-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%);
-  /* Opera 12+ */
   background: -ms-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%);
-  /* IE10+ */
   background: radial-gradient(ellipse at center, #e5e5e5 0%, #ffffff 100%);
-  /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5e5e5', endColorstr='#ffffff', GradientType=1);
-  /* IE6-9 fallback on horizontal gradient */
   font: 600 15px "Open Sans", Arial, sans-serif;
 }
 label.control-label {
   font-weight: 600;
   color: #777;
 }
-
-
-
-
-
-
-
 
 table { 
 	width: 650px; 
@@ -108,7 +84,6 @@ table {
 	margin-top:50px;
 	}
 
-/* Zebra striping */
 tr:nth-of-type(odd) { 
 	background: #eee; 
 	}
@@ -170,11 +145,11 @@ while($row=mysqli_fetch_array($ret2))
     </tr>
 	
 	<tr height="50">
-      <td><b>firstname:</b></td>
+      <td><b>First Name:</b></td>
       <td><?php echo htmlentities($row['f_name']); ?></td>
     </tr>
 	<tr height="50">
-      <td><b>lastname:</b></td>
+      <td><b>Last Name:</b></td>
       <td><?php echo htmlentities($row['l_name']); ?></td>
     </tr>
 	
@@ -186,7 +161,7 @@ while($row=mysqli_fetch_array($ret2))
     </tr>
 
 <tr height="50">
-      <td><b>User phone:</b></td>
+      <td><b>User Phone:</b></td>
       <td><?php echo htmlentities($row['phone']); ?></td>
     </tr>
      
@@ -202,7 +177,7 @@ while($row=mysqli_fetch_array($ret2))
      <tr height="50">
       <td><b>Status:</b></td>
       <td><?php if($row['status']==1)
-      { echo "<div class='btn btn-success'>Active</div>";
+      { echo "<div class='btn btn-primary'>Active</div>";
 } else{
   echo "<div class='btn btn-danger'>Block</div>";
 }

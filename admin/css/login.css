@@ -2,7 +2,7 @@
 .form {
   position: relative;
   z-index: 1;
-  background: #FFFFFF;
+  background: #ffffff;
   max-width: 300px;
   margin: 0 auto 100px;
   padding: 30px;
@@ -13,7 +13,7 @@
   text-align: center;
 }
 .form .thumbnail {
-  background: #EF3B3A;
+  background: #5c4ac7;
   width: 150px;
   height: 150px;
   margin: 0 auto 30px;
@@ -42,10 +42,9 @@
   box-sizing: border-box;
   font-size: 14px;
 }
-.form input[type="submit"]
-{
-	outline: 0;
-  background: #EF3B3A;
+.form input[type="submit"] {
+  outline: 0;
+  background: #5c4ac7;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -53,14 +52,14 @@
   border-top-right-radius: 3px;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 14px;
   transition: all 0.3 ease;
   cursor: pointer;
 }
 .form button {
   outline: 0;
-  background: #EF3B3A;
+  background: #5c4ac7;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -68,7 +67,7 @@
   border-top-right-radius: 3px;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 14px;
   transition: all 0.3 ease;
   cursor: pointer;
@@ -79,7 +78,7 @@
   font-size: 12px;
 }
 .form .message a {
-  color: #EF3B3A;
+  color: #5c4ac7;
   text-decoration: none;
 }
 .form .register-form {
@@ -92,7 +91,8 @@
   max-width: 300px;
   margin: 0 auto;
 }
-.container:before, .container:after {
+.container:before,
+.container:after {
   content: "";
   display: block;
   clear: both;
@@ -117,7 +117,7 @@
   text-decoration: none;
 }
 .container .info span .fa {
-  color: #EF3B3A;
+  color: #5c4ac7;
 }
 
 /* END Form */

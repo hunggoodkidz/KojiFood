@@ -3,7 +3,12 @@
 include("../connection/connect.php");
 error_reporting(0);
 session_start();
-
+if(strlen($_SESSION['user_id'])==0)
+  { 
+header('location:../login.php');
+}
+else
+{
   if(isset($_POST['update']))
   {
 $form_id=$_GET['form_id'];
@@ -12,7 +17,7 @@ $remark=$_POST['remark'];
 $query=mysqli_query($db,"insert into remark(frm_id,status,remark) values('$form_id','$status','$remark')");
 $sql=mysqli_query($db,"update users_orders set status='$status' where o_id='$form_id'");
 
-echo "<script>alert('form details updated successfully');</script>";
+echo "<script>alert('Form Details Updated Successfully');</script>";
 
   }
 
@@ -31,25 +36,16 @@ window.print();
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <title>Ela - Bootstrap Admin Dashboard Template</title>
-    <!-- Bootstrap Core CSS -->
+    <title>Order Update</title>
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link href="css/helper.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
-    <!--[if lt IE 9]>
-    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    
 <style type="text/css" rel="stylesheet">
 
 
@@ -67,21 +63,13 @@ window.print();
 }
 .panel-body {
   background: #e5e5e5;
-  /* Old browsers */
   background: -moz-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%);
-  /* FF3.6+ */
   background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #e5e5e5), color-stop(100%, #ffffff));
-  /* Chrome,Safari4+ */
   background: -webkit-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%);
-  /* Chrome10+,Safari5.1+ */
   background: -o-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%);
-  /* Opera 12+ */
   background: -ms-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%);
-  /* IE10+ */
   background: radial-gradient(ellipse at center, #e5e5e5 0%, #ffffff 100%);
-  /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5e5e5', endColorstr='#ffffff', GradientType=1);
-  /* IE6-9 fallback on horizontal gradient */
   font: 600 15px "Open Sans", Arial, sans-serif;
 }
 label.control-label {
@@ -103,7 +91,7 @@ table {
 	margin-top:50px;
 	}
 
-/* Zebra striping */
+
 tr:nth-of-type(odd) { 
 	background: #eee; 
 	}
@@ -136,7 +124,7 @@ td, th {
  
 <table  border="0" cellspacing="0" cellpadding="0">
      <tr >
-      <td><b>form Number</b></td>
+      <td><b>Form Number</b></td>
       <td><?php echo htmlentities($_GET['form_id']); ?></td>
     </tr>
 	<tr>
@@ -149,16 +137,16 @@ td, th {
       <td><b>Status</b></td>
       <td><select name="status" required="required" >
       <option value="">Select Status</option>
-      <option value="in process">In Process</option>
-    <option value="closed">Closed</option>
-	 <option value="rejected">rejected</option>
+      <option value="in process">On the way</option>
+    <option value="closed">Delivered</option>
+	 <option value="rejected">Cancelled</option>
         
       </select></td>
     </tr>
 
 
       <tr >
-      <td><b>Remark</b></td>
+      <td><b>Message</b></td>
       <td><textarea name="remark" cols="50" rows="10" required="required"></textarea></td>
     </tr>
     
@@ -185,4 +173,4 @@ td, th {
 </body>
 </html>
 
-   
+     <?php } ?>
