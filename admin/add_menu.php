@@ -5,27 +5,15 @@ include("../connection/connect.php");
 error_reporting(0);
 session_start();
 
-
-
-
 if(isset($_POST['submit']))          
 {
-	
-			
-		
-			
-		  
-		
-		
+
 		if(empty($_POST['d_name'])||empty($_POST['about'])||$_POST['price']==''||$_POST['res_name']=='')
 		{	
 											$error = 	'<div class="alert alert-danger alert-dismissible fade show">
 																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 																<strong>All fields Must be Fillup!</strong>
-															</div>';
-									
-		
-								
+															</div>';										
 		}
 	else
 		{
@@ -43,20 +31,15 @@ if(isset($_POST['submit']))
 					{        
 									if($fsize>=1000000)
 										{
-		
-		
+
 												$error = 	'<div class="alert alert-danger alert-dismissible fade show">
 																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 																<strong>Max Image Size is 1024kb!</strong> Try different Image.
 															</div>';
-	   
 										}
 		
 									else
-										{
-												
-												
-												
+										{							
 				                                 
 												$sql = "INSERT INTO dishes(rs_id,title,slogan,price,img) VALUE('".$_POST['res_name']."','".$_POST['d_name']."','".$_POST['about']."','".$_POST['price']."','".$fnew."')";  // store the submited data ino the database :images
 												mysqli_query($db, $sql); 
@@ -83,28 +66,12 @@ if(isset($_POST['submit']))
 																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 																<strong>invalid extension!</strong>png, jpg, Gif are accepted.
 															</div>';
-						
 	   
 						}               
-	   
-	   
+
 	   }
 
-
-
-	
-	
-	
-
 }
-
-
-
-
-
-
-
-
 ?>
 <head>
     <meta charset="utf-8">
@@ -140,14 +107,10 @@ if(isset($_POST['submit']))
        
                     <ul class="navbar-nav mr-auto mt-md-0">
               
-                        
-                     
-                       
                     </ul>
           
                     <ul class="navbar-nav my-lg-0">
 
-                        
           
                         <li class="nav-item dropdown">
                            
