@@ -41,15 +41,25 @@ session_start(); //start temp session until Logout/browser closed
                         <?php
                     if(empty($_SESSION["user_id"])) // if user is not login
                         {
-                            echo '<li class="nav-item"><a href="login.php" class="nav-link active">login</a> </li>
-                        <li class="nav-item"><a href="registration.php" class="nav-link active">signup</a> </li>';
+                            echo '<li class="nav-item"><a href="login.php" class="nav-link active">Sign In</a> </li>
+                        <li class="nav-item"><a href="registration.php" class="nav-link active">Register</a> </li>';
                         }
                     else
                         {
                                 //if user is login
                                 
                                 echo  '<li class="nav-item"><a href="your_orders.php" class="nav-link active">Orders</a> </li>';
-                                echo  '<li class="nav-item"><a href="Logout.php" class="nav-link active">Logout</a> </li>';
+                                echo '<li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> '.$_SESSION["username"].'</a>
+                                <div class="dropdown-menu dropdown-menu-right animated zoomIn">
+                                    <ul class="dropdown-user" style="
+                                    background-color: white !important;">
+                                    <li> <a class="dropdown-item" href="change_password.php"><i class="fa fa-gear"></i> Change Password</a> </li>
+                                    <li> <a class="dropdown-item" href="Logout.php"><i class="fa fa-power-off"></i> Logout</a> </li>
+                                    
+                                    </ul>
+                                </div>
+                              </li>';
                         }
 
                     ?>

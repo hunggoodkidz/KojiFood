@@ -39,7 +39,8 @@ if(isset($_POST['submit']))   // neu ma button submit thi
 	
 	                        if(is_array($row))  
 								{
-                                    	$_SESSION["user_id"] = $row['u_id']; // put user id into temp session
+                                    	$_SESSION["user_id"] = $row['u_id'];
+										$_SESSION["username"] = $row['username'];  // put user id into temp session
 										 header("refresh:1;url=index.php"); // redirect to index.php page
 	                            } 
 							else
