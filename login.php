@@ -17,11 +17,16 @@
 		  color:#fff;
 		  background-color: #ff3300;
 	  }
+	  .body {
+		background-image: url("images/img/food1.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		}
 	  </style>
   
 </head>
 
-<body>
+<body data-image-src="images/img/food1.jpg">
 <?php
 include("connection/connect.php"); //INCLUDE CONNECTION
 error_reporting(0); 
@@ -58,7 +63,7 @@ if(isset($_POST['submit']))   // neu ma button submit thi
 <!-- Button Mixin-->
 <!-- Pen Title-->
 <div class="pen-title">
-  <h1>Login Form</h1>
+  <h1>Sign In </h1>
 </div>
 <!-- Form Module-->
 <div class="module form-module">
@@ -79,6 +84,7 @@ if(isset($_POST['submit']))   // neu ma button submit thi
   <div class="cta">Not registered?<a href="registration.php" style="color:#f30;"> Create an account</a></div>
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
 </body>
 
 </html>

@@ -165,14 +165,6 @@ while($row=mysqli_fetch_array($ret2))
       <td><?php echo htmlentities($row['phone']); ?></td>
     </tr>
      
-
-
-       
-
-
-
-
-
       
      <tr height="50">
       <td><b>Status:</b></td>
