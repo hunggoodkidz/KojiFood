@@ -281,7 +281,7 @@ if(isset($_POST['submit']))
                             
                         </div>
                     </div>
-                    <footer class="footer"> © 2022 - Online Food Ordering System </footer>
+                    <footer class="footer"> © 2023 - Team Pixel </footer>
                 </div>               
             </div>
         </div>    
