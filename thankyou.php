@@ -29,9 +29,9 @@
 <body>
 	<div class="container">
 		<i class="fas fa-check-circle"></i>
-		<h1>Thank you for your purchase!</h1>
-        <p>You can view your order details in the <a href="your_orders.php">Order History</a> section.</p>
-        <p>You can also continue shopping from our <a href="index.php">Home Page</a>.</p>
+		<h1>Cảm ơn bạn đã thanh toán!</h1>
+        <p>Xin vui lòng truy cập  <a href="your_orders.php">Đơn đặt</a> để kiểm tra đơn hàng của mình</p>
+        <p>Trả về lại ban đầu, nhấp <a href="index.php">Trang Chủ</a>.</p>
         <p>If you have any questions, please contact our customer support.</p>
 	</div>
 </body>

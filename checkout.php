@@ -94,10 +94,9 @@ else{
                       $jsonResult = json_decode($result, true);  // decode json
 
                     //Insert data into the database after MoMo payment
-                      if ($jsonResult['errorCode'] == 0 && $jsonResult['localMessage'] == 'Success') {
                             $SQL="insert into users_orders(u_id,title,quantity,price) values('".$_SESSION["user_id"]."','".$item["title"]."','".$item["quantity"]."','".$item["price"]."')";
                             mysqli_query($db,$SQL);
-                        }
+                        
 
                         
                       header('Location: ' . $jsonResult['payUrl']);
@@ -171,6 +170,8 @@ else{
                         $jsonResult = json_decode($result, true);  // decode json
 
                         //Just a example, please check more in there
+                        $SQL="insert into users_orders(u_id,title,quantity,price) values('".$_SESSION["user_id"]."','".$item["title"]."','".$item["quantity"]."','".$item["price"]."')";
+                        mysqli_query($db,$SQL);
 
                         header('Location: ' . $jsonResult['payUrl']);
                 
@@ -294,7 +295,7 @@ else{
                                             </li>
                                             <li>
                                                 <label class="custom-control custom-radio  m-b-10">
-                                                    <input name="mod"  type="radio" value="momo"  class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description">Thanh Toán Momo <img src="images/momo.jpg" alt="" width="18"></span> </label>
+                                                    <input name="mod"  type="radio" value="momo"  class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description">Thanh Toán Momo ATM<img src="images/momo.jpg" alt="" width="18"></span> </label>
                                             </li>
                                             <li>
                                                 <label class="custom-control custom-radio  m-b-10">
