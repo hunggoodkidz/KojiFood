@@ -141,44 +141,45 @@ if(isset($_POST['submit']))
         </div>
      
         <div class="left-sidebar">
-     
-            <div class="scroll-sidebar">
-               
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li class="nav-devider"></li>
-                        <li class="nav-label">Home</li>
-                        <li> <a href="dashboard.php"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
-                        <li class="nav-label">Log</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-user f-s-20 color-warning"></i><span class="hide-menu">Users</span></a>
-                            <ul aria-expanded="false" class="collapse">
-								<li><a href="all_users.php">Users Details</a></li>
-								<li><a href="add_users.php">Add Users</a></li>
-                                
-                            </ul>
-                        </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Restaurant</span></a>
-                            <ul aria-expanded="false" class="collapse">
-								<li><a href="all_restaurant.php">All Restaurants</a></li>
-								<li><a href="add_category.php">Add Category</a></li>
-                                <li><a href="add_restaurant.php">Add Restaurant</a></li>
-                                
-                            </ul>
-                        </li>
-                      <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Menu</span></a>
-                            <ul aria-expanded="false" class="collapse">
-								<li><a href="all_menu.php">All Menues</a></li>
-								<li><a href="add_menu.php">Add Menu</a></li>
-                              
-                                
-                            </ul>
-                        </li>
-						 <li> <a href="all_orders.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>Orders</span></a></li>
-                         
-                    </ul>
-                </nav>
-            
-            </div>
+   
+        <div class="scroll-sidebar">
+
+            <nav class="sidebar-nav">
+                <ul id="sidebarnav">
+                    <li class="nav-devider"></li>
+                    <li class="nav-label">Home</li>
+                    <li> <a href="dashboard.php"><i class="fa fa-tachometer"></i><span>Dashboard</span></a>
+                    </li>
+                    <li class="nav-label">Hệ thống quản lý CRUD</li>
+                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-user f-s-20 color-warning"></i><span class="hide-menu">Tài khoản</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="all_users.php">Danh sách tài khoản</a></li>
+                            <li><a href="add_users.php">Thêm tài khoản</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Nhà hàng</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="all_restaurant.php">Danh sách nhà hàng</a></li>
+                            <li><a href="add_category.php">Thêm danh mục</a></li>
+                            <li><a href="add_restaurant.php">Thêm nhà hàng</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Món ăn</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="all_menu.php">Danh sách món ăn</a></li>
+                            <li><a href="add_menu.php">Thêm món ăn</a></li>
+                            
+                            
+                        </ul>
+                    </li>
+                        <li> <a href="all_orders.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>Đơn hàng</span></a></li>
+                        
+                </ul>
+            </nav>
+        
+        </div>
         
         </div>
       
@@ -199,7 +200,7 @@ if(isset($_POST['submit']))
                                     <div class="col-lg-12">
                         <div class="card card-outline-primary">
                             <div class="card-header">
-                                <h4 class="m-b-0 text-white">Add Menu</h4>
+                                <h4 class="m-b-0 text-white">Thêm món ăn</h4>
                             </div>
                             <div class="card-body">
                                 <form action='' method='post'  enctype="multipart/form-data">
@@ -209,14 +210,14 @@ if(isset($_POST['submit']))
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">Dish Name</label>
+                                                    <label class="control-label">Tên món</label>
                                                     <input type="text" name="d_name" class="form-control" >
                                                    </div>
                                             </div>
                                       
                                             <div class="col-md-6">
                                                 <div class="form-group has-danger">
-                                                    <label class="control-label">Description</label>
+                                                    <label class="control-label">Mô tả</label>
                                                     <input type="text" name="about" class="form-control form-control-danger" >
                                                     </div>
                                             </div>
@@ -226,14 +227,14 @@ if(isset($_POST['submit']))
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">Price </label>
+                                                    <label class="control-label">Giá tiền </label>
                                                     <input type="text" name="price" class="form-control" placeholder="$">
                                                    </div>
                                             </div>
                                    
                                             <div class="col-md-6">
                                                 <div class="form-group has-danger">
-                                                    <label class="control-label">Image</label>
+                                                    <label class="control-label">Hình ảnh</label>
                                                     <input type="file" name="file"  id="lastName" class="form-control form-control-danger" placeholder="12n">
                                                     </div>
                                             </div>
@@ -251,7 +252,7 @@ if(isset($_POST['submit']))
 											
 											 <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label class="control-label">Select Restaurant</label>
+                                                    <label class="control-label">Chọn nhà hàng</label>
 													<select name="res_name" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
                                                         <option>--Select Restaurant--</option>
                                                  <?php $ssql ="select * from restaurant";

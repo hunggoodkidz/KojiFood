@@ -32,28 +32,28 @@ session_start();
                 <a class="navbar-brand" href="index.php"> <img class="img-rounded" src="images/koji.png" alt=""> </a>
                 <div class="collapse navbar-toggleable-md  float-lg-right" id="mainNavbarCollapse">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item"> <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a> </li>
-                        <li class="nav-item"> <a class="nav-link active" href="restaurants.php">Restaurants <span class="sr-only"></span></a> </li>
+                        <li class="nav-item"> <a class="nav-link active" href="index.php">Trang Chủ <span class="sr-only">(current)</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link active" href="restaurants.php">Nhà Hàng <span class="sr-only"></span></a> </li>
                         
                     
                         <?php
                     if(empty($_SESSION["user_id"])) // if user is not login
                         {
-                            echo '<li class="nav-item"><a href="login.php" class="nav-link active">Sign In</a> </li>
-                        <li class="nav-item"><a href="registration.php" class="nav-link active">Register</a> </li>';
+                            echo '<li class="nav-item"><a href="login.php" class="nav-link active">Đăng Nhập</a> </li>
+                        <li class="nav-item"><a href="registration.php" class="nav-link active">Đăng Ký</a> </li>';
                         }
                     else
                         {
                                 //if user is login
                                 
-                                echo  '<li class="nav-item"><a href="your_orders.php" class="nav-link active">Orders</a> </li>';
+                                echo  '<li class="nav-item"><a href="your_orders.php" class="nav-link active">Đơn Đặt</a> </li>';
                                 echo '<li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle active" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> '.$_SESSION["username"].'</a>
                                 <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                     <ul class="dropdown-user" style="
                                     background-color: white !important;">
-                                    <li> <a class="dropdown-item" href="change_password.php"><i class="fa fa-gear"></i> Change Password</a> </li>
-                                    <li> <a class="dropdown-item" href="Logout.php"><i class="fa fa-power-off"></i> Logout</a> </li>
+                                    <li> <a class="dropdown-item" href="change_password.php"><i class="fa fa-gear"></i> Đổi mật khẩu</a> </li>
+                                    <li> <a class="dropdown-item" href="Logout.php"><i class="fa fa-power-off"></i> Đăng Xuất </a> </li>
                                     
                                     </ul>
                                 </div>
@@ -74,10 +74,11 @@ session_start();
             <div class="top-links">
                 <div class="container">
                     <ul class="row links">
+                                              
                        
-                        <li class="col-xs-12 col-sm-4 link-item active"><span>1</span><a href="restaurants.php">Choose Restaurant</a></li>
-                        <li class="col-xs-12 col-sm-4 link-item"><span>2</span><a href="#">Pick Your favorite food</a></li>
-                        <li class="col-xs-12 col-sm-4 link-item"><span>3</span><a href="#">Order and Pay online</a></li>
+                        <li class="col-xs-12 col-sm-4 link-item active"><span>1</span><a href="restaurants.php">Chọn Nhà Hàng</a></li>
+                        <li class="col-xs-12 col-sm-4 link-item"><span>2</span><a href="#">Đặt món ăn yêu thích của bạn</a></li>
+                        <li class="col-xs-12 col-sm-4 link-item"><span>3</span><a href="#">Giao hàng và thanh toán</a></li>
                     </ul>
                 </div>
             </div>
@@ -162,7 +163,7 @@ session_start();
 																<div class="right-content bg-white">
 																	<div class="right-review">
 																		<div class="rating-block"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
-																		<p> 245 Reviews</p> <a href="dishes.php?res_id='.$rows['rs_id'].'" class="btn theme-btn-dash">View Menu</a> </div>
+																		<p> 245 Reviews</p> <a href="dishes.php?res_id='.$rows['rs_id'].'" class="btn theme-btn-dash">Xem Thực Đơn</a> </div>
 																</div>
 																<!-- end:right info -->
 															</div>';

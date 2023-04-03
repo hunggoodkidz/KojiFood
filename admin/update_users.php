@@ -14,6 +14,7 @@ if(isset($_POST['submit'] ))
 		empty($_POST['lname']) ||  
 		empty($_POST['email'])||
 		empty($_POST['password'])||
+        empty($_POST['address'])||
 		empty($_POST['phone']))
 		{
 			$error = '<div class="alert alert-danger alert-dismissible fade show">
@@ -53,11 +54,12 @@ if(isset($_POST['submit'] ))
 	else{
        
 	
-	$mql = "update users set username='$_POST[uname]', f_name='$_POST[fname]', l_name='$_POST[lname]',email='$_POST[email]',phone='$_POST[phone]',password='".md5($_POST['password'])."' where u_id='$_GET[user_upd]' ";
+	$mql = "update users set username='$_POST[uname]', f_name='$_POST[fname]', l_name='$_POST[lname]',email='$_POST[email]',phone='$_POST[phone]',address='$_POST[address]',password='".md5($_POST['password'])."' where u_id='$_GET[user_upd]' ";
 	mysqli_query($db, $mql);
 			$success = 	'<div class="alert alert-success alert-dismissible fade show">
 																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 																<strong>User Updated!</strong></div>';
+
 	
     }
 	}
@@ -132,46 +134,45 @@ if(isset($_POST['submit'] ))
         </div>
    
         <div class="left-sidebar">
-    
+   
             <div class="scroll-sidebar">
-             
+
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="nav-devider"></li>
                         <li class="nav-label">Home</li>
                         <li> <a href="dashboard.php"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
-                        <li class="nav-label">Log</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-user f-s-20 color-warning"></i><span class="hide-menu">Users</span></a>
+                        <li class="nav-label">Hệ thống quản lý CRUD</li>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-user f-s-20 color-warning"></i><span class="hide-menu">Tài khoản</span></a>
                             <ul aria-expanded="false" class="collapse">
-								<li><a href="all_users.php">Users Details</a></li>
-								<li><a href="add_users.php">Add Users</a></li>
+                                <li><a href="all_users.php">Danh sách tài khoản</a></li>
+                                <li><a href="add_users.php">Thêm tài khoản</a></li>
                                 
                             </ul>
                         </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Restaurant</span></a>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Nhà hàng</span></a>
                             <ul aria-expanded="false" class="collapse">
-								<li><a href="all_restaurant.php">All Restaurants</a></li>
-								<li><a href="add_category.php">Add Category</a></li>
-                                <li><a href="add_restaurant.php">Add Restaurant</a></li>
+                                <li><a href="all_restaurant.php">Danh sách nhà hàng</a></li>
+                                <li><a href="add_category.php">Thêm danh mục</a></li>
+                                <li><a href="add_restaurant.php">Thêm nhà hàng</a></li>
                                 
                             </ul>
                         </li>
-                      <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Menu</span></a>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Món ăn</span></a>
                             <ul aria-expanded="false" class="collapse">
-								<li><a href="all_menu.php">All Menues</a></li>
-								<li><a href="add_menu.php">Add Menu</a></li>
-                              
+                                <li><a href="all_menu.php">Danh sách món ăn</a></li>
+                                <li><a href="add_menu.php">Thêm món ăn</a></li>
+                                
                                 
                             </ul>
                         </li>
-						 <li> <a href="all_orders.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>Orders</span></a></li>
-						
-                         
+                            <li> <a href="all_orders.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>Đơn hàng</span></a></li>
+                            
                     </ul>
                 </nav>
-              
+            
             </div>
-  
+        
         </div>
    
         <div class="page-wrapper" style="height:1200px;">
@@ -203,7 +204,7 @@ if(isset($_POST['submit'] ))
 					    <div class="col-lg-12">
                         <div class="card card-outline-primary">
                             <div class="card-header">
-                                <h4 class="m-b-0 text-white">Update Users</h4>
+                                <h4 class="m-b-0 text-white">Sửa Thông Tin Tài Khoản</h4>
                             </div>
                             <div class="card-body">
 							  <?php $ssql ="select * from users where u_id='$_GET[user_upd]'";
@@ -216,14 +217,14 @@ if(isset($_POST['submit'] ))
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">Username</label>
+                                                    <label class="control-label">Tên Đăng Nhập</label>
                                                     <input type="text" name="uname" class="form-control" value="<?php  echo $newrow['username']; ?>" placeholder="username">
                                                    </div>
                                             </div>
                                      
                                             <div class="col-md-6">
                                                 <div class="form-group has-danger">
-                                                    <label class="control-label">First-Name</label>
+                                                    <label class="control-label">Họ</label>
                                                     <input type="text" name="fname" class="form-control form-control-danger"  value="<?php  echo $newrow['f_name'];  ?>" placeholder="jon">
                                                     </div>
                                             </div>
@@ -233,7 +234,7 @@ if(isset($_POST['submit'] ))
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">Last-Name </label>
+                                                    <label class="control-label">Tên</label>
                                                     <input type="text" name="lname" class="form-control" placeholder="doe"  value="<?php  echo $newrow['l_name']; ?>">
                                                    </div>
                                             </div>
@@ -257,11 +258,21 @@ if(isset($_POST['submit'] ))
                                         
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">Phone</label>
+                                                    <label class="control-label">Số Điện Thoại</label>
                                                     <input type="text" name="phone" class="form-control form-control-danger"   value="<?php  echo $newrow['phone'];  ?>" placeholder="phone">
                                                     </div>
                                                 </div>
                                             </div>
+                                            <h3 class="box-title m-t-40">Địa chỉ nơi ở</h3>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-12 ">
+                                                <div class="form-group">
+                                                    
+                                                    <textarea name="address" type="text" style="height:100px;" class="form-control" > <?php echo $newrow['address']; ?> </textarea>
+                                                </div>
+                                            </div>
+                                        </div>
                                  
                                             
                                       

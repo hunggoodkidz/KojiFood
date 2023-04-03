@@ -88,45 +88,45 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
         </div>
 
         <div class="left-sidebar">
-        
+   
             <div class="scroll-sidebar">
-         
+
                 <nav class="sidebar-nav">
-                   <ul id="sidebarnav">
+                    <ul id="sidebarnav">
                         <li class="nav-devider"></li>
                         <li class="nav-label">Home</li>
                         <li> <a href="dashboard.php"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
-                        <li class="nav-label">Log</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-user f-s-20 color-warning"></i><span class="hide-menu">Users</span></a>
+                        <li class="nav-label">Hệ thống quản lý CRUD</li>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-user f-s-20 color-warning"></i><span class="hide-menu">Tài khoản</span></a>
                             <ul aria-expanded="false" class="collapse">
-								<li><a href="all_users.php">Users Details</a></li>
-								<li><a href="add_users.php">Add Users</a></li>
+                                <li><a href="all_users.php">Danh sách tài khoản</a></li>
+                                <li><a href="add_users.php">Thêm tài khoản</a></li>
                                 
                             </ul>
                         </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Restaurant</span></a>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Nhà hàng</span></a>
                             <ul aria-expanded="false" class="collapse">
-								<li><a href="all_restaurant.php">All Restaurants</a></li>
-								<li><a href="add_category.php">Add Category</a></li>
-                                <li><a href="add_restaurant.php">Add Restaurant</a></li>
+                                <li><a href="all_restaurant.php">Danh sách nhà hàng</a></li>
+                                <li><a href="add_category.php">Thêm danh mục</a></li>
+                                <li><a href="add_restaurant.php">Thêm nhà hàng</a></li>
                                 
                             </ul>
                         </li>
-                      <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Menu</span></a>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Món ăn</span></a>
                             <ul aria-expanded="false" class="collapse">
-								<li><a href="all_menu.php">All Menues</a></li>
-								<li><a href="add_menu.php">Add Menu</a></li>
-                              
+                                <li><a href="all_menu.php">Danh sách món ăn</a></li>
+                                <li><a href="add_menu.php">Thêm món ăn</a></li>
+                                
                                 
                             </ul>
                         </li>
-						 <li> <a href="all_orders.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>Orders</span></a></li>
-                         
+                            <li> <a href="all_orders.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>Đơn hàng</span></a></li>
+                            
                     </ul>
                 </nav>
-          
+            
             </div>
-     
+        
         </div>
     
         <div class="page-wrapper">
@@ -210,18 +210,18 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 																			if($status=="" or $status=="NULL")
 																			{
 																			?>
-																			<td> <center><button type="button" class="btn btn-info"><span class="fa fa-bars"  aria-hidden="true" ></span> Dispatch</button></center></td>
+																			<td> <center><button type="button" class="btn btn-info"><span class="fa fa-bars"  aria-hidden="true" ></span> Đang xét duyệt</button></center></td>
 																		   <?php 
 																			  }
 																			   if($status=="in process")
 																			 { ?>
-																			<td>   <center><button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin"  aria-hidden="true" ></span>On a Way!</button></center></td> 
+																			<td>   <center><button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin"  aria-hidden="true" ></span>Đang vận chuyển!</button></center></td> 
 																			<?php
 																				}
 																			if($status=="closed")
 																				{
 																			?>
-																			<td>  <center><button type="button" class="btn btn-primary" ><span  class="fa fa-check-circle" aria-hidden="true"></span> Delivered</button></center></td> 
+																			<td>  <center><button type="button" class="btn btn-primary" ><span  class="fa fa-check-circle" aria-hidden="true"></span> Đã giao hàng</button></center></td> 
 																			<?php 
 																			} 
 																			?>
@@ -229,7 +229,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 																			if($status=="rejected")
 																				{
 																			?>
-																			<td>  <center><button type="button" class="btn btn-danger"> <i class="fa fa-close"></i> Cancelled</button> </center></td> 
+																			<td>  <center><button type="button" class="btn btn-danger"> <i class="fa fa-close"></i> Đã hủy</button> </center></td> 
 																			<?php 
 																			} 
 																			?>

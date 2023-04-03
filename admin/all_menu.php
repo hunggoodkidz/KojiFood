@@ -78,45 +78,45 @@ session_start();
         </div>
       
         <div class="left-sidebar">
-
+   
             <div class="scroll-sidebar">
-               
+
                 <nav class="sidebar-nav">
-                   <ul id="sidebarnav">
+                    <ul id="sidebarnav">
                         <li class="nav-devider"></li>
                         <li class="nav-label">Home</li>
                         <li> <a href="dashboard.php"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
-                        <li class="nav-label">Log</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-user f-s-20 color-warning"></i><span class="hide-menu">Users</span></a>
+                        <li class="nav-label">Hệ thống quản lý CRUD</li>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-user f-s-20 color-warning"></i><span class="hide-menu">Tài khoản</span></a>
                             <ul aria-expanded="false" class="collapse">
-								<li><a href="all_users.php">Users Details</a></li>
-								<li><a href="add_users.php">Add Users</a></li>
+                                <li><a href="all_users.php">Danh sách tài khoản</a></li>
+                                <li><a href="add_users.php">Thêm tài khoản</a></li>
                                 
                             </ul>
                         </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Restaurant</span></a>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Nhà hàng</span></a>
                             <ul aria-expanded="false" class="collapse">
-								<li><a href="all_restaurant.php">All Restaurants</a></li>
-								<li><a href="add_category.php">Add Category</a></li>
-                                <li><a href="add_restaurant.php">Add Restaurant</a></li>
+                                <li><a href="all_restaurant.php">Danh sách nhà hàng</a></li>
+                                <li><a href="add_category.php">Thêm danh mục</a></li>
+                                <li><a href="add_restaurant.php">Thêm nhà hàng</a></li>
                                 
                             </ul>
                         </li>
-                      <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Menu</span></a>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Món ăn</span></a>
                             <ul aria-expanded="false" class="collapse">
-								<li><a href="all_menu.php">All Menues</a></li>
-								<li><a href="add_menu.php">Add Menu</a></li>
-                              
+                                <li><a href="all_menu.php">Danh sách món ăn</a></li>
+                                <li><a href="add_menu.php">Thêm món ăn</a></li>
+                                
                                 
                             </ul>
                         </li>
-						 <li> <a href="all_orders.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>Orders</span></a></li>
-                         
+                            <li> <a href="all_orders.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>Đơn hàng</span></a></li>
+                            
                     </ul>
                 </nav>
-         
+            
             </div>
-           
+        
         </div>
      
         <div class="page-wrapper">
@@ -137,7 +137,7 @@ session_start();
                              <div class="col-lg-12">
                         <div class="card card-outline-primary">
                             <div class="card-header">
-                                <h4 class="m-b-0 text-white">All Menu</h4>
+                                <h4 class="m-b-0 text-white">Danh sách món ăn</h4>
                             </div>
                                 
 								
@@ -145,11 +145,11 @@ session_start();
                                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-											 <th>Restaurant</th>
-                                                <th>Dish</th>
-                                                <th>Description</th>
-                                                <th>Price</th>
-                                                <th>Image</th>
+											 <th>Nhà Hàng</th>
+                                                <th>Món Ăn</th>
+                                                <th>Mô tả</th>
+                                                <th>Giá Tiền</th>
+                                                <th>Hình Ảnh</th>
                                                <th>Action</th>	  
                                             </tr>
                                         </thead>
@@ -177,7 +177,7 @@ session_start();
 																					
 																								<td>'.$rows['title'].'</td>
 																								<td>'.$rows['slogan'].'</td>
-																								<td>$'.$rows['price'].'</td>
+																								<td>'.$rows['price'].'đ</td>
 																								
 																								
 																								<td><div class="col-md-3 col-lg-8 m-b-10">

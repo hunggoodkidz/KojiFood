@@ -38,28 +38,28 @@ include_once 'product-action.php'; //including controller
                 <a class="navbar-brand" href="index.php"> <img class="img-rounded" src="images/koji.png" alt=""> </a>
                 <div class="collapse navbar-toggleable-md  float-lg-right" id="mainNavbarCollapse">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item"> <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a> </li>
-                        <li class="nav-item"> <a class="nav-link active" href="restaurants.php">Restaurants <span class="sr-only"></span></a> </li>
+                        <li class="nav-item"> <a class="nav-link active" href="index.php">Trang Chủ <span class="sr-only">(current)</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link active" href="restaurants.php">Nhà Hàng <span class="sr-only"></span></a> </li>
                         
                     
                         <?php
                     if(empty($_SESSION["user_id"])) // if user is not login
                         {
-                            echo '<li class="nav-item"><a href="login.php" class="nav-link active">Sign In</a> </li>
-                        <li class="nav-item"><a href="registration.php" class="nav-link active">Register</a> </li>';
+                            echo '<li class="nav-item"><a href="login.php" class="nav-link active">Đăng Nhập</a> </li>
+                        <li class="nav-item"><a href="registration.php" class="nav-link active">Đăng Ký</a> </li>';
                         }
                     else
                         {
                                 //if user is login
                                 
-                                echo  '<li class="nav-item"><a href="your_orders.php" class="nav-link active">Orders</a> </li>';
+                                echo  '<li class="nav-item"><a href="your_orders.php" class="nav-link active">Đơn Đặt</a> </li>';
                                 echo '<li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle active" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> '.$_SESSION["username"].'</a>
                                 <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                     <ul class="dropdown-user" style="
                                     background-color: white !important;">
-                                    <li> <a class="dropdown-item" href="change_password.php"><i class="fa fa-gear"></i> Change Password</a> </li>
-                                    <li> <a class="dropdown-item" href="Logout.php"><i class="fa fa-power-off"></i> Logout</a> </li>
+                                    <li> <a class="dropdown-item" href="change_password.php"><i class="fa fa-gear"></i> Đổi mật khẩu</a> </li>
+                                    <li> <a class="dropdown-item" href="Logout.php"><i class="fa fa-power-off"></i> Đăng Xuất </a> </li>
                                     
                                     </ul>
                                 </div>
@@ -80,10 +80,11 @@ include_once 'product-action.php'; //including controller
             <div class="top-links">
                 <div class="container">
                     <ul class="row links">
+
                       
-                        <li class="col-xs-12 col-sm-4 link-item"><span>1</span><a href="restaurants.php">Choose Restaurant</a></li>
-                        <li class="col-xs-12 col-sm-4 link-item active"><span>2</span><a href="dishes.php?res_id=<?php echo $_GET['res_id']; ?>">Pick Your favorite food</a></li>
-                        <li class="col-xs-12 col-sm-4 link-item"><span>3</span><a href="#">Order and Pay online</a></li>
+                        <li class="col-xs-12 col-sm-4 link-item"><span>1</span><a href="restaurants.php">Chọn Nhà Hàng</a></li>
+                        <li class="col-xs-12 col-sm-4 link-item active"><span>2</span><a href="dishes.php?res_id=<?php echo $_GET['res_id']; ?>">Đặt món ăn yêu thích của bạn</a></li>
+                        <li class="col-xs-12 col-sm-4 link-item"><span>3</span><a href="#">Giao hàng và thanh toán</a></li>
                     </ul>
                 </div>
             </div>
@@ -141,7 +142,7 @@ include_once 'product-action.php'; //including controller
                          <div class="widget widget-cart">
                                 <div class="widget-heading">
                                     <h3 class="widget-title text-dark">
-                                 Your Shopping Cart
+                                 Đơn Hàng Của Bạn
                               </h3>
 							  				  
 							  
@@ -155,29 +156,29 @@ include_once 'product-action.php'; //including controller
 
 $item_total = 0;
 
-foreach ($_SESSION["cart_item"] as $item)  // fetch items define current into session ID
-{
-?>									
-									
-                                        <div class="title-row">
-										<?php echo $item["title"]; ?><a href="dishes.php?res_id=<?php echo $_GET['res_id']; ?>&action=remove&id=<?php echo $item["d_id"]; ?>" >
-										<i class="fa fa-trash pull-right"></i></a>
-										</div>
-										
-                                        <div class="form-group row no-gutter">
-                                            <div class="col-xs-8">
-                                                 <input type="text" class="form-control b-r-0" value=<?php echo "$".$item["price"]; ?> readonly id="exampleSelect1">
-                                                   
-                                            </div>
-                                            <div class="col-xs-4">
-                                               <input class="form-control" type="text" readonly value='<?php echo $item["quantity"]; ?>' id="example-number-input"> </div>
-                                        
-									  </div>
-									  
-	<?php
-$item_total += ($item["price"]*$item["quantity"]); // calculating current price into cart
-}
-?>								  
+                        foreach ($_SESSION["cart_item"] as $item)  // fetch items define current into session ID
+                        {
+                        ?>									
+                                                            
+                                                                <div class="title-row">
+                                                                <?php echo $item["title"]; ?><a href="dishes.php?res_id=<?php echo $_GET['res_id']; ?>&action=remove&id=<?php echo $item["d_id"]; ?>" >
+                                                                <i class="fa fa-trash pull-right"></i></a>
+                                                                </div>
+                                                                
+                                                                <div class="form-group row no-gutter">
+                                                                    <div class="col-xs-8">
+                                                                        <input type="text" class="form-control b-r-0" value=<?php echo "$".$item["price"]; ?> readonly id="exampleSelect1">
+                                                                        
+                                                                    </div>
+                                                                    <div class="col-xs-4">
+                                                                    <input class="form-control" type="text" readonly value='<?php echo $item["quantity"]; ?>' id="example-number-input"> </div>
+                                                                
+                                                            </div>
+                                                            
+                            <?php
+                        $item_total += ($item["price"]*$item["quantity"]); // calculating current price into cart
+                        }
+                        ?>								  
 									  
 									  
 									  
@@ -188,10 +189,10 @@ $item_total += ($item["price"]*$item["quantity"]); // calculating current price 
                              
                                 <div class="widget-body">
                                     <div class="price-wrap text-xs-center">
-                                        <p>TOTAL</p>
-                                        <h3 class="value"><strong><?php echo "$".$item_total; ?></strong></h3>
-                                        <p>Free Shipping</p>
-                                        <a href="checkout.php?res_id=<?php echo $_GET['res_id'];?>&action=check"  class="btn theme-btn btn-lg button">Checkout</a>
+                                        <p>Tổng Tiền</p>
+                                        <h3 class="value"><strong><?php echo $item_total." đ"; ?></strong></h3>
+                                        <p>Ưu đãi Free Ship</p>
+                                        <a href="checkout.php?res_id=<?php echo $_GET['res_id'];?>&action=check"  class="btn theme-btn btn-lg button">Đặt Hàng</a>
                                     </div>
                                 </div>
 								
@@ -207,7 +208,7 @@ $item_total += ($item["price"]*$item["quantity"]); // calculating current price 
                         <div class="menu-widget" id="2">
                             <div class="widget-heading">
                                 <h3 class="widget-title text-dark">
-                              POPULAR ORDERS Delicious hot food! <a class="btn btn-link pull-right" data-toggle="collapse" href="#popular2" aria-expanded="true">
+                              Các món ăn xịn xò!! ~~~<a class="btn btn-link pull-right" data-toggle="collapse" href="#popular2" aria-expanded="true">
                               <i class="fa fa-angle-right pull-right"></i>
                               <i class="fa fa-angle-down pull-right"></i>
                               </a>
@@ -243,9 +244,9 @@ $item_total += ($item["price"]*$item["quantity"]); // calculating current price 
                                         </div>
                                         <!-- end:col -->
                                         <div class="col-xs-12 col-sm-12 col-lg-4 pull-right item-cart-info"> 
-										<span class="price pull-left" >$<?php echo $product['price']; ?></span>
+										<span class="price pull-left" ><?php echo $product['price']; ?> đ</span>
 										  <input class="b-r-0" type="text" name="quantity"  style="margin-left:30px;" value="1" size="2" />
-										  <input type="submit" class="btn theme-btn" style="width:8.5rem;" value="Add to cart" />
+										  <input type="submit" class="btn theme-btn" style="width:10rem;" value="Thêm vào giỏ hàng" />
 										</div>
 										</form>
                                     </div>

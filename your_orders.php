@@ -169,28 +169,28 @@ only screen and (max-width: 760px),
                 <a class="navbar-brand" href="index.php"> <img class="img-rounded" src="images/koji.png" alt=""> </a>
                 <div class="collapse navbar-toggleable-md  float-lg-right" id="mainNavbarCollapse">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item"> <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a> </li>
-                        <li class="nav-item"> <a class="nav-link active" href="restaurants.php">Restaurants <span class="sr-only"></span></a> </li>
+                        <li class="nav-item"> <a class="nav-link active" href="index.php">Trang Chủ <span class="sr-only">(current)</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link active" href="restaurants.php">Nhà Hàng <span class="sr-only"></span></a> </li>
                         
                     
                         <?php
                     if(empty($_SESSION["user_id"])) // if user is not login
                         {
-                            echo '<li class="nav-item"><a href="login.php" class="nav-link active">Sign In</a> </li>
-                        <li class="nav-item"><a href="registration.php" class="nav-link active">Register</a> </li>';
+                            echo '<li class="nav-item"><a href="login.php" class="nav-link active">Đăng Nhập</a> </li>
+                        <li class="nav-item"><a href="registration.php" class="nav-link active">Đăng Ký</a> </li>';
                         }
                     else
                         {
                                 //if user is login
                                 
-                                echo  '<li class="nav-item"><a href="your_orders.php" class="nav-link active">Orders</a> </li>';
+                                echo  '<li class="nav-item"><a href="your_orders.php" class="nav-link active">Đơn Đặt</a> </li>';
                                 echo '<li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle active" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> '.$_SESSION["username"].'</a>
                                 <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                     <ul class="dropdown-user" style="
                                     background-color: white !important;">
-                                    <li> <a class="dropdown-item" href="change_password.php"><i class="fa fa-gear"></i> Change Password</a> </li>
-                                    <li> <a class="dropdown-item" href="Logout.php"><i class="fa fa-power-off"></i> Logout</a> </li>
+                                    <li> <a class="dropdown-item" href="change_password.php"><i class="fa fa-gear"></i> Đổi mật khẩu</a> </li>
+                                    <li> <a class="dropdown-item" href="Logout.php"><i class="fa fa-power-off"></i> Đăng Xuất </a> </li>
                                     
                                     </ul>
                                 </div>
@@ -231,7 +231,7 @@ only screen and (max-width: 760px),
                           
                           
                             <div class="widget clearfix">
-                                <!-- /widget heading -->
+
                                 <div class="widget-heading">
                                     <h3 class="widget-title text-dark">
                                  Popular tags
@@ -261,7 +261,7 @@ only screen and (max-width: 760px),
                                     </ul>
                                 </div>
                             </div>
-                            <!-- end:Widget -->
+
                         </div>
                         <div class="col-xs-12 col-sm-7 col-md-7 ">
                             <div class="bg-gray restaurant-entry">
@@ -271,10 +271,10 @@ only screen and (max-width: 760px),
 						  <thead>
 							<tr>
 							
-							  <th>Item</th>
-							  <th>Quantity</th>
-							  <th>price</th>
-							   <th>status</th>
+							  <th>Tên Món</th>
+							  <th>Số lượng</th>
+							  <th>Giá tiền</th>
+							   <th>Tình trạng</th>
 							     <th>Date</th>
 								   <th>Action</th>
 							  
@@ -307,18 +307,18 @@ only screen and (max-width: 760px),
 																			if($status=="" or $status=="NULL")
 																			{
 																			?>
-																			<button type="button" class="btn btn-info" style="font-weight:bold;">Dispatch</button>
+																			<button type="button" class="btn btn-info" style="font-weight:bold;">Đang xét duyệt</button>
 																		   <?php 
 																			  }
 																			   if($status=="in process")
 																			 { ?>
-																				<button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin"  aria-hidden="true" ></span>On a Way!</button>
+																				<button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin"  aria-hidden="true" ></span>Đang vận chuyển!</button>
 																			<?php
 																				}
 																			if($status=="closed")
 																				{
 																			?>
-																			 <button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Delivered</button> 
+																			 <button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Đã giao hàng</button> 
 																			<?php 
 																			} 
 																			?>
@@ -326,7 +326,7 @@ only screen and (max-width: 760px),
 																			if($status=="rejected")
 																				{
 																			?>
-																			 <button type="button" class="btn btn-danger"> <i class="fa fa-close"></i>cancelled</button>
+																			 <button type="button" class="btn btn-danger"> <i class="fa fa-close"></i>Đã hủy</button>
 																			<?php 
 																			} 
 																			?>

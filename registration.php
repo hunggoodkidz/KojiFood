@@ -15,7 +15,7 @@ if(isset($_POST['submit'] ))
 		empty($_POST['cpassword']) ||
 		empty($_POST['cpassword']))
 		{
-			$message = "All fields must be Required!";
+			$message = "Không được để trống thông tin";
 		}
 	else
 	{
@@ -26,35 +26,35 @@ if(isset($_POST['submit'] ))
 
 	
 	if($_POST['password'] != $_POST['cpassword']){  
-       	$message = "Password not match";
+       	$message = "Mật khẩu không trùng khớp";
     }
 	elseif(strlen($_POST['password']) < 6)  
 	{
-		$message = "Password Must be >=6";
+		$message = "Mật khẩu phải lớn hơn 6 kí tự";
 	}
 	elseif(strlen($_POST['phone']) < 10)  
 	{
-		$message = "invalid phone number!";
+		$message = "Số điện thoại không hợp lệ";
 	}
 
     elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) 
     {
-       	$message = "Invalid email address please type a valid email!";
+       	$message = "Email không hợp lệ, xin vui lòng nhập đúng email";
     }
 	elseif(mysqli_num_rows($check_username) > 0)  
      {
-    	$message = 'username Already exists!';
+    	$message = 'Tên tài khoản đã tồn tại!';
      }
 	elseif(mysqli_num_rows($check_email) > 0) 
      {
-    	$message = 'Email Already exists!';
+    	$message = 'Email này đã tồn tại!';
      }
 	else{
        
 	 //truy xuat du lieu trong database
 	$mql = "INSERT INTO users(username,f_name,l_name,email,phone,password,address) VALUES('".$_POST['username']."','".$_POST['firstname']."','".$_POST['lastname']."','".$_POST['email']."','".$_POST['phone']."','".md5($_POST['password'])."','".$_POST['address']."')";
 	mysqli_query($db, $mql);
-		$success = "Account Created successfully! <p>You will be redirected in <span id='counter'>5</span> second(s).</p>
+		$success = "Tạo tài khoản thành công! <p>Bạn sẽ được trở về nới đăng nhập <span id='counter'>5</span> giây(s).</p>
       <script type='text/javascript'>
       function countdown() {
          var i = document.getElementById('counter');
@@ -83,7 +83,7 @@ if(isset($_POST['submit'] ))
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="#">
-    <title>Starter Template for Bootstrap</title>
+    <title>Koji Food - Đăng Nhập</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -102,28 +102,28 @@ if(isset($_POST['submit'] ))
                 <a class="navbar-brand" href="index.php"> <img class="img-rounded" src="images/koji.png" alt=""> </a>
                 <div class="collapse navbar-toggleable-md  float-lg-right" id="mainNavbarCollapse">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item"> <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a> </li>
-                        <li class="nav-item"> <a class="nav-link active" href="restaurants.php">Restaurants <span class="sr-only"></span></a> </li>
+                        <li class="nav-item"> <a class="nav-link active" href="index.php">Trang Chủ <span class="sr-only">(current)</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link active" href="restaurants.php">Nhà Hàng <span class="sr-only"></span></a> </li>
                         
                     
                         <?php
                     if(empty($_SESSION["user_id"])) // if user is not login
                         {
-                            echo '<li class="nav-item"><a href="login.php" class="nav-link active">Sign In</a> </li>
-                        <li class="nav-item"><a href="registration.php" class="nav-link active">Register</a> </li>';
+                            echo '<li class="nav-item"><a href="login.php" class="nav-link active">Đăng Nhập</a> </li>
+                        <li class="nav-item"><a href="registration.php" class="nav-link active">Đăng Ký</a> </li>';
                         }
                     else
                         {
                                 //if user is login
                                 
-                                echo  '<li class="nav-item"><a href="your_orders.php" class="nav-link active">Orders</a> </li>';
+                                echo  '<li class="nav-item"><a href="your_orders.php" class="nav-link active">Đơn Đặt</a> </li>';
                                 echo '<li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle active" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> '.$_SESSION["username"].'</a>
                                 <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                     <ul class="dropdown-user" style="
                                     background-color: white !important;">
-                                    <li> <a class="dropdown-item" href="change_password.php"><i class="fa fa-gear"></i> Change Password</a> </li>
-                                    <li> <a class="dropdown-item" href="Logout.php"><i class="fa fa-power-off"></i> Logout</a> </li>
+                                    <li> <a class="dropdown-item" href="change_password.php"><i class="fa fa-gear"></i> Đổi mật khẩu</a> </li>
+                                    <li> <a class="dropdown-item" href="Logout.php"><i class="fa fa-power-off"></i> Đăng Xuất </a> </li>
                                     
                                     </ul>
                                 </div>
@@ -165,35 +165,35 @@ if(isset($_POST['submit'] ))
 							  <form action="" method="post">
                                  <div class="row">
 								  <div class="form-group col-sm-12">
-                                       <label for="exampleInputEmail1">User-Name</label>
+                                       <label for="exampleInputEmail1">Tên tài khoản</label>
                                        <input class="form-control" type="text" name="username" id="example-text-input" placeholder="UserName"> 
                                     </div>
                                     <div class="form-group col-sm-6">
-                                       <label for="exampleInputEmail1">First Name</label>
+                                       <label for="exampleInputEmail1">Họ</label>
                                        <input class="form-control" type="text" name="firstname" id="example-text-input" placeholder="First Name"> 
                                     </div>
                                     <div class="form-group col-sm-6">
-                                       <label for="exampleInputEmail1">Last Name</label>
+                                       <label for="exampleInputEmail1">Tên</label>
                                        <input class="form-control" type="text" name="lastname" id="example-text-input-2" placeholder="Last Name"> 
                                     </div>
                                     <div class="form-group col-sm-6">
-                                       <label for="exampleInputEmail1">Email address</label>
+                                       <label for="exampleInputEmail1">Địa chỉ Email</label>
                                        <input type="text" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"> <small id="emailHelp" class="form-text text-muted">We"ll never share your email with anyone else.</small> 
                                     </div>
                                     <div class="form-group col-sm-6">
-                                       <label for="exampleInputEmail1">Phone number</label>
+                                       <label for="exampleInputEmail1">Số điện thoại</label>
                                        <input class="form-control" type="text" name="phone" id="example-tel-input-3" placeholder="Phone"> <small class="form-text text-muted">We"ll never share your email with anyone else.</small> 
                                     </div>
                                     <div class="form-group col-sm-6">
-                                       <label for="exampleInputPassword1">Password</label>
+                                       <label for="exampleInputPassword1">Mật khẩu</label>
                                        <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password"> 
                                     </div>
                                     <div class="form-group col-sm-6">
-                                       <label for="exampleInputPassword1">Repeat password</label>
+                                       <label for="exampleInputPassword1">Nhập lại mật khẩu</label>
                                        <input type="password" class="form-control" name="cpassword" id="exampleInputPassword2" placeholder="Password"> 
                                     </div>
 									 <div class="form-group col-sm-12">
-                                       <label for="exampleTextarea">Delivery Address</label>
+                                       <label for="exampleTextarea">Địa chỉ nơi ở vận chuyển</label>
                                        <textarea class="form-control" id="exampleTextarea"  name="address" rows="3"></textarea>
                                     </div>
                                    
@@ -201,7 +201,7 @@ if(isset($_POST['submit'] ))
                                 
                                  <div class="row">
                                     <div class="col-sm-4">
-                                       <p> <input type="submit" value="Register" name="submit" class="btn theme-btn"> </p>
+                                       <p> <input type="submit" value="Đăng Ký" name="submit" class="btn theme-btn"> </p>
                                     </div>
                                  </div>
                               </form>
@@ -213,10 +213,10 @@ if(isset($_POST['submit'] ))
                      </div>
                      <!-- WHY? -->
                      <div class="col-md-4">
-                        <h4>Registration is fast, easy, and free.</h4>
-                        <p>Once you"re registered, you can:</p>
+                        <h4>Tạp chí & cẩm nang công thức</h4>
+                        <p>Các phương thức luôn được đề cập mọi toàn quốc tại Koji Food</p>
                         <hr>
-                        <img src="http://placehold.it/400x300" alt="" class="img-fluid">
+                        <img src="https://res.cloudinary.com/dbmfupfkf/image/upload/v1674445486/cld-sample-4.jpg" alt="" class="img-fluid">
                         <p></p>
                         <div class="panel">
                            <div class="panel-heading">

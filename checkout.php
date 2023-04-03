@@ -93,11 +93,11 @@ else{
                       $result = execPostRequest($endpoint, json_encode($data));
                       $jsonResult = json_decode($result, true);  // decode json
 
-                    // Insert data into the database after MoMo payment
-                    //   if ($jsonResult['errorCode'] == 0 && $jsonResult['localMessage'] == 'Success') {
-                    //         $SQL="insert into users_orders(u_id,title,quantity,price) values('".$_SESSION["user_id"]."','".$item["title"]."','".$item["quantity"]."','".$item["price"]."')";
-                    //         mysqli_query($db,$SQL);
-                    //     }
+                    //Insert data into the database after MoMo payment
+                      if ($jsonResult['errorCode'] == 0 && $jsonResult['localMessage'] == 'Success') {
+                            $SQL="insert into users_orders(u_id,title,quantity,price) values('".$_SESSION["user_id"]."','".$item["title"]."','".$item["quantity"]."','".$item["price"]."')";
+                            mysqli_query($db,$SQL);
+                        }
 
                         
                       header('Location: ' . $jsonResult['payUrl']);
@@ -195,31 +195,34 @@ else{
     
     <div class="site-wrapper">
         <header id="header" class="header-scroll top-header headrom">
-            <nav class="navbar navbar-dark">
+        <nav class="navbar navbar-dark">
             <div class="container">
                 <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#mainNavbarCollapse">&#9776;</button>
                 <a class="navbar-brand" href="index.php"> <img class="img-rounded" src="images/koji.png" alt=""> </a>
                 <div class="collapse navbar-toggleable-md  float-lg-right" id="mainNavbarCollapse">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item"> <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a> </li>
-                        <li class="nav-item"> <a class="nav-link active" href="restaurants.php">Restaurants <span class="sr-only"></span></a> </li>
-
+                        <li class="nav-item"> <a class="nav-link active" href="index.php">Trang Chủ <span class="sr-only">(current)</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link active" href="restaurants.php">Nhà Hàng <span class="sr-only"></span></a> </li>
+                        
+                    
                         <?php
-                    if(empty($_SESSION["user_id"])) 
+                    if(empty($_SESSION["user_id"])) // if user is not login
                         {
-                            echo '<li class="nav-item"><a href="login.php" class="nav-link active">Sign In</a> </li>
-                        <li class="nav-item"><a href="registration.php" class="nav-link active">Register</a> </li>';
+                            echo '<li class="nav-item"><a href="login.php" class="nav-link active">Đăng Nhập</a> </li>
+                        <li class="nav-item"><a href="registration.php" class="nav-link active">Đăng Ký</a> </li>';
                         }
                     else
                         {
-                                echo  '<li class="nav-item"><a href="your_orders.php" class="nav-link active">Orders</a> </li>';
+                                //if user is login
+                                
+                                echo  '<li class="nav-item"><a href="your_orders.php" class="nav-link active">Đơn Đặt</a> </li>';
                                 echo '<li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle active" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> '.$_SESSION["username"].'</a>
                                 <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                     <ul class="dropdown-user" style="
                                     background-color: white !important;">
-                                    <li> <a class="dropdown-item" href="change_password.php"><i class="fa fa-gear"></i> Change Password</a> </li>
-                                    <li> <a class="dropdown-item" href="Logout.php"><i class="fa fa-power-off"></i> Logout</a> </li>
+                                    <li> <a class="dropdown-item" href="change_password.php"><i class="fa fa-gear"></i> Đổi mật khẩu</a> </li>
+                                    <li> <a class="dropdown-item" href="Logout.php"><i class="fa fa-power-off"></i> Đăng Xuất </a> </li>
                                     
                                     </ul>
                                 </div>
@@ -239,9 +242,9 @@ else{
                 <div class="container">
                     <ul class="row links">
                       
-                        <li class="col-xs-12 col-sm-4 link-item"><span>1</span><a href="restaurants.php">Choose Restaurant</a></li>
-                        <li class="col-xs-12 col-sm-4 link-item "><span>2</span><a href="#">Pick Your favorite food</a></li>
-                        <li class="col-xs-12 col-sm-4 link-item active" ><span>3</span><a href="checkout.php">Order and Pay online</a></li>
+                        <li class="col-xs-12 col-sm-4 link-item"><span>1</span><a href="restaurants.php">Chọn Nhà Hàng</a></li>
+                        <li class="col-xs-12 col-sm-4 link-item "><span>2</span><a href="#">Đặt món ăn yêu thích của bạn</a></li>
+                        <li class="col-xs-12 col-sm-4 link-item active" ><span>3</span><a href="checkout.php">Giao hàng và thanh toán</a></li>
                     </ul>
                 </div>
             </div>
@@ -261,18 +264,18 @@ else{
                                 <div class="col-sm-12">
                                     <div class="cart-totals margin-b-20">
                                         <div class="cart-totals-title">
-                                            <h4>Cart Summary</h4> </div>
+                                            <h4>Thông tin đơn hàng</h4> </div>
                                         <div class="cart-totals-fields">
 										
                                             <table class="table">
 											<tbody>
                                                     <tr>
-                                                        <td>Cart Subtotal</td>
-                                                        <td> <?php echo "$".$item_total; ?></td>
+                                                        <td>Tổng tiền</td>
+                                                        <td> <?php echo $item_total." đ"; ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Shipping &amp; Handling</td>
-                                                        <td>free shipping</td>
+                                                        <td>Phí vận chuyển</td>
+                                                        <td>Miễn phí từ ưu đãi Free Ship</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-color"><strong>Total</strong></td>
@@ -286,8 +289,8 @@ else{
                                         <ul class=" list-unstyled">
                                             <li>
                                                 <label class="custom-control custom-radio  m-b-20">
-                                                    <input name="mod" id="radioStacked1" checked value="COD" type="radio" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description">Payment on delivery</span>
-                                                    <br> <span>Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</span> </label>
+                                                    <input name="mod" id="radioStacked1" checked value="COD" type="radio" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description">Thanh toán khi nhận hàng</span>
+                                                    <br> <span>Hãy chắc chắn rằng địa chỉ của bạn ghi đúng để mấy anh shipper giao đúng tận nơi</span> </label>
                                             </li>
                                             <li>
                                                 <label class="custom-control custom-radio  m-b-10">
@@ -299,7 +302,7 @@ else{
                                             </li>
 
                                         </ul>
-                                        <p class="text-xs-center"> <input type="submit" onclick="return confirm('Are you sure?');" name="submit"  class="btn btn-outline-success btn-block" value="Order now"> </p>
+                                        <p class="text-xs-center"> <input type="submit" onclick="return confirm('Are you sure?');" name="submit"  class="btn btn-outline-success btn-block" value="Đặt ngay"> </p>
                                     </div>
 						</form>
                                 </div>
