@@ -15,12 +15,7 @@
     <link rel="stylesheet" href="css/login.css">
 
     <style type="text/css">
-    #buttn {
-        color: #fff;
-        background-color: #ff3300;
-    }
-
-    <style type="text/css">#buttn {
+    #button {
         color: #fff;
         background-color: #ff3300;
     }
@@ -81,7 +76,7 @@ else
                 <input type="text" placeholder="New name" name="new_name" />
                 <input type="password" placeholder="New password"
                     name="new_password" />
-                <input type="submit" id="buttn" name="submit"
+                <input type="submit" id="button" name="submit"
                     value="Update profile" />
             </form>
         </div>
