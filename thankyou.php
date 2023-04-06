@@ -33,7 +33,8 @@
     <div class="container">
         <i class="fas fa-check-circle"></i>
         <h1>Cảm ơn bạn đã thanh toán!</h1>
-        <p>Xin vui lòng truy cập <a href="your_orders.php">Đơn đặt</a> để kiểm tra đơn hàng của mình</p>
+        <p>Xin vui lòng truy cập <a href="your_orders.php">Đơn đặt</a> để kiểm
+            tra đơn hàng của mình</p>
         <p>Trả về lại ban đầu, nhấp <a href="index.php">Trang Chủ</a>.</p>
         <p>If you have any questions, please contact our customer support.</p>
     </div>

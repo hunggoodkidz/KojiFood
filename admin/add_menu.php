@@ -1,78 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
 include("../connection/connect.php");
 error_reporting(0);
 session_start();
 
-if(isset($_POST['submit']))          
-{
-
-		if(empty($_POST['d_name'])||empty($_POST['about'])||$_POST['price']==''||$_POST['res_name']=='')
-		{	
-											$error = 	'<div class="alert alert-danger alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>All fields Must be Fillup!</strong>
-															</div>';										
-		}
-	else
-		{
-		
-				$fname = $_FILES['file']['name'];
-								$temp = $_FILES['file']['tmp_name'];
-								$fsize = $_FILES['file']['size'];
-								$extension = explode('.',$fname);
-								$extension = strtolower(end($extension));  
-								$fnew = uniqid().'.'.$extension;
-   
-								$store = "Res_img/dishes/".basename($fnew);                    
-	
-					if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
-					{        
-									if($fsize>=1000000)
-										{
-
-												$error = 	'<div class="alert alert-danger alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>Max Image Size is 1024kb!</strong> Try different Image.
-															</div>';
-										}
-		
-									else
-										{							
-				                                 
-												$sql = "INSERT INTO dishes(rs_id,title,slogan,price,img) VALUE('".$_POST['res_name']."','".$_POST['d_name']."','".$_POST['about']."','".$_POST['price']."','".$fnew."')";  // store the submited data ino the database :images
-												mysqli_query($db, $sql); 
-												move_uploaded_file($temp, $store);
-			  
-													$success = 	'<div class="alert alert-success alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																 New Dish Added Successfully.
-															</div>';
-                
-	
-										}
-					}
-					elseif($extension == '')
-					{
-						$error = 	'<div class="alert alert-danger alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>select image</strong>
-															</div>';
-					}
-					else{
-					
-											$error = 	'<div class="alert alert-danger alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>invalid extension!</strong>png, jpg, Gif are accepted.
-															</div>';
-	   
-						}               
-
-	   }
-
+if (isset($_POST['submit'])) {
+    if (empty($_POST['d_name']) || empty($_POST['about']) || empty($_POST['price']) || empty($_POST['res_name'])) {
+        $error = '<div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>All fields must be filled up!</strong>
+                </div>';
+    } else {
+        $fname = $_FILES['file']['name'];
+        $temp = $_FILES['file']['tmp_name'];
+        $fsize = $_FILES['file']['size'];
+        $extension = pathinfo($fname, PATHINFO_EXTENSION);
+        $fnew = uniqid() . '.' . $extension;
+        $store = "Res_img/dishes/" . basename($fnew);
+        $allowed_extensions = array("jpg", "jpeg", "png", "gif");
+        if (!in_array($extension, $allowed_extensions)) {
+            $error = '<div class="alert alert-danger alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Invalid extension!</strong> Only PNG, JPG, GIF are accepted.
+                    </div>';
+        } elseif ($fsize > 1000000) {
+            $error = '<div class="alert alert-danger alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Max image size is 1024kb!</strong> Try a different image.
+                    </div>';
+        } else {
+            $sql = "INSERT INTO dishes(rs_id, title, slogan, price, img) VALUES ('" . $_POST['res_name'] . "', '" . $_POST['d_name'] . "', '" . $_POST['about'] . "', '" . $_POST['price'] . "', '" . $fnew . "')";
+            mysqli_query($db, $sql);
+            move_uploaded_file($temp, $store);
+            $success = '<div class="alert alert-success alert-dismissible fade show">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            New dish added successfully.
+                        </div>';
+        }
+    }
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -119,24 +88,26 @@ if(isset($_POST['submit']))
                             <div class="dropdown-menu dropdown-menu-right mailbox animated zoomIn">
                                 <ul>
                                     <li>
-                                        <div class="drop-title">Notifications</div>
+                                        <div class="drop-title">Notifications
+                                        </div>
                                     </li>
 
                                     <li>
-                                        <a class="nav-link text-center" href="javascript:void(0);"> <strong>Check all
-                                                notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                                        <a class="nav-link text-center" href="javascript:void(0);">
+                                            <strong>Check all
+                                                notifications</strong> <i class="fa fa-angle-right"></i>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false"><img src="images/bookingSystem/user-icn.png"
-                                    alt="user" class="profile-pic" /></a>
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/bookingSystem/user-icn.png" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                    <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <li><a href="logout.php"><i class="fa fa-power-off"></i>
+                                            Logout</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -156,29 +127,32 @@ if(isset($_POST['submit']))
                         <li> <a href="dashboard.php"><i class="fa fa-tachometer"></i><span>Dashboard</span></a>
                         </li>
                         <li class="nav-label">Hệ thống quản lý CRUD</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i
-                                    class="fa fa-user f-s-20 color-warning"></i><span class="hide-menu">Tài
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-user f-s-20 color-warning"></i><span class="hide-menu">Tài
                                     khoản</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="all_users.php">Danh sách tài khoản</a></li>
-                                <li><a href="add_users.php">Thêm tài khoản</a></li>
+                                <li><a href="all_users.php">Danh sách tài
+                                        khoản</a></li>
+                                <li><a href="add_users.php">Thêm tài khoản</a>
+                                </li>
 
                             </ul>
                         </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i
-                                    class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Nhà
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Nhà
                                     hàng</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="all_restaurant.php">Danh sách nhà hàng</a></li>
-                                <li><a href="add_category.php">Thêm danh mục</a></li>
-                                <li><a href="add_restaurant.php">Thêm nhà hàng</a></li>
+                                <li><a href="all_restaurant.php">Danh sách nhà
+                                        hàng</a></li>
+                                <li><a href="add_category.php">Thêm danh mục</a>
+                                </li>
+                                <li><a href="add_restaurant.php">Thêm nhà
+                                        hàng</a></li>
 
                             </ul>
                         </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery"
-                                    aria-hidden="true"></i><span class="hide-menu">Món ăn</span></a>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Món ăn</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="all_menu.php">Danh sách món ăn</a></li>
+                                <li><a href="all_menu.php">Danh sách món ăn</a>
+                                </li>
                                 <li><a href="add_menu.php">Thêm món ăn</a></li>
                             </ul>
                         </li>
@@ -191,8 +165,8 @@ if(isset($_POST['submit']))
         <div class="page-wrapper">
             <div class="container-fluid">
                 <!-- Start Page Content -->
-                <?php  echo $error;
-									        echo $success; ?>
+                <?php echo $error;
+                echo $success; ?>
                 <div class="col-lg-12">
                     <div class="card card-outline-primary">
                         <div class="card-header">
@@ -205,48 +179,50 @@ if(isset($_POST['submit']))
                                     <div class="row p-t-20">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="control-label">Tên món</label>
+                                                <label class="control-label">Tên
+                                                    món</label>
                                                 <input type="text" name="d_name" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group has-danger">
-                                                <label class="control-label">Mô tả</label>
-                                                <input type="text" name="about"
-                                                    class="form-control form-control-danger">
+                                                <label class="control-label">Mô
+                                                    tả</label>
+                                                <input type="text" name="about" class="form-control form-control-danger">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row p-t-20">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="control-label">Giá tiền </label>
+                                                <label class="control-label">Giá
+                                                    tiền </label>
                                                 <input type="text" name="price" class="form-control" placeholder="$">
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-group has-danger">
-                                                <label class="control-label">Hình ảnh</label>
-                                                <input type="file" name="file" id="lastName"
-                                                    class="form-control form-control-danger" placeholder="12n">
+                                                <label class="control-label">Hình
+                                                    ảnh</label>
+                                                <input type="file" name="file" id="lastName" class="form-control form-control-danger" placeholder="12n">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="control-label">Chọn nhà hàng</label>
-                                                <select name="res_name" class="form-control custom-select"
-                                                    data-placeholder="Choose a Category" tabindex="1">
-                                                    <option>--Select Restaurant--</option>
-                                                    <?php $ssql ="select * from restaurant";
-													$res=mysqli_query($db, $ssql); 
-													while($row=mysqli_fetch_array($res))  
-													{
-                                                       echo' <option value="'.$row['rs_id'].'">'.$row['title'].'</option>';;
-													}  
-													?>
+                                                <label class="control-label">Chọn
+                                                    nhà hàng</label>
+                                                <select name="res_name" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
+                                                    <option>--Select
+                                                        Restaurant--</option>
+                                                    <?php $ssql = "select * from restaurant";
+                                                    $res = mysqli_query($db, $ssql);
+                                                    while ($row = mysqli_fetch_array($res)) {
+                                                        echo ' <option value="' . $row['rs_id'] . '">' . $row['title'] . '</option>';;
+                                                    }
+                                                    ?>
                                                 </select>
                                             </div>
                                         </div>
