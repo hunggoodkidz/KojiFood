@@ -1,60 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-
-session_start(); 
-error_reporting(0); 
-include("connection/connect.php");
-if(isset($_POST['submit'] ))
+session_start();
+error_reporting(0);
+include ("connection/connect.php");
+if (isset($_POST['submit']))
 {
-     if(empty($_POST['firstname']) ||  
-   	    empty($_POST['lastname'])|| 
-		empty($_POST['email']) ||  
-		empty($_POST['phone'])||
-		empty($_POST['password'])||
-		empty($_POST['cpassword']) ||
-		empty($_POST['cpassword']))
-		{
-			$message = "Không được để trống thông tin";
-		}
-	else
-	{
-		//check user xem co bi trung` khong
-	$check_username= mysqli_query($db, "SELECT username FROM users where username = '".$_POST['username']."' ");
-	$check_email = mysqli_query($db, "SELECT email FROM users where email = '".$_POST['email']."' ");
-		
-
-	
-	if($_POST['password'] != $_POST['cpassword']){  
-       	$message = "Mật khẩu không trùng khớp";
-    }
-	elseif(strlen($_POST['password']) < 6)  
-	{
-		$message = "Mật khẩu phải lớn hơn 6 kí tự";
-	}
-	elseif(strlen($_POST['phone']) < 10)  
-	{
-		$message = "Số điện thoại không hợp lệ";
-	}
-
-    elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) 
+    if (empty($_POST['firstname']) || empty($_POST['lastname']) || empty($_POST['email']) || empty($_POST['phone']) || empty($_POST['password']) || empty($_POST['cpassword']) || empty($_POST['cpassword']))
     {
-       	$message = "Email không hợp lệ, xin vui lòng nhập đúng email";
+        $message = "Không được để trống thông tin";
     }
-	elseif(mysqli_num_rows($check_username) > 0)  
-     {
-    	$message = 'Tên tài khoản đã tồn tại!';
-     }
-	elseif(mysqli_num_rows($check_email) > 0) 
-     {
-    	$message = 'Email này đã tồn tại!';
-     }
-	else{
-       
-	 //truy xuat du lieu trong database
-	$mql = "INSERT INTO users(username,f_name,l_name,email,phone,password,address) VALUES('".$_POST['username']."','".$_POST['firstname']."','".$_POST['lastname']."','".$_POST['email']."','".$_POST['phone']."','".md5($_POST['password'])."','".$_POST['address']."')";
-	mysqli_query($db, $mql);
-		$success = "Tạo tài khoản thành công! <p>Bạn sẽ được trở về nới đăng nhập <span id='counter'>5</span> giây(s).</p>
+    else
+    {
+        //check user xem co bi trung` khong
+        $check_username = mysqli_query($db, "SELECT username FROM users where username = '" . $_POST['username'] . "' ");
+        $check_email = mysqli_query($db, "SELECT email FROM users where email = '" . $_POST['email'] . "' ");
+
+        if ($_POST['password'] != $_POST['cpassword'])
+        {
+            $message = "Mật khẩu không trùng khớp";
+        }
+        elseif (strlen($_POST['password']) < 6)
+        {
+            $message = "Mật khẩu phải lớn hơn 6 kí tự";
+        }
+        elseif (strlen($_POST['phone']) < 10)
+        {
+            $message = "Số điện thoại không hợp lệ";
+        }
+
+        elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+        {
+            $message = "Email không hợp lệ, xin vui lòng nhập đúng email";
+        }
+        elseif (mysqli_num_rows($check_username) > 0)
+        {
+            $message = 'Tên tài khoản đã tồn tại!';
+        }
+        elseif (mysqli_num_rows($check_email) > 0)
+        {
+            $message = 'Email này đã tồn tại!';
+        }
+        else
+        {
+
+            //truy xuat du lieu trong database
+            $mql = "INSERT INTO users(username,f_name,l_name,email,phone,password,address) VALUES('" . $_POST['username'] . "','" . $_POST['firstname'] . "','" . $_POST['lastname'] . "','" . $_POST['email'] . "','" . $_POST['phone'] . "','" . md5($_POST['password']) . "','" . $_POST['address'] . "')";
+            mysqli_query($db, $mql);
+            $success = "Tạo tài khoản thành công! <p>Bạn sẽ được trở về nới đăng nhập <span id='counter'>5</span> giây(s).</p>
       <script type='text/javascript'>
       function countdown() {
          var i = document.getElementById('counter');
@@ -65,12 +58,11 @@ if(isset($_POST['submit'] ))
       }
       setInterval(function(){ countdown(); },1000);
       </script>'";
-		 header("refresh:5;url=login.php"); 
+            header("refresh:5;url=login.php");
+        }
     }
-	}
 
 }
-
 
 ?>
 
@@ -107,18 +99,18 @@ if(isset($_POST['submit'] ))
                         
                     
                         <?php
-                    if(empty($_SESSION["user_id"])) // if user is not login
-                        {
-                            echo '<li class="nav-item"><a href="login.php" class="nav-link active">Đăng Nhập</a> </li>
+if (empty($_SESSION["user_id"])) // if user is not login
+
+{
+    echo '<li class="nav-item"><a href="login.php" class="nav-link active">Đăng Nhập</a> </li>
                         <li class="nav-item"><a href="registration.php" class="nav-link active">Đăng Ký</a> </li>';
-                        }
-                    else
-                        {
-                                //if user is login
-                                
-                                echo  '<li class="nav-item"><a href="your_orders.php" class="nav-link active">Đơn Đặt</a> </li>';
-                                echo '<li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle active" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> '.$_SESSION["username"].'</a>
+}
+else
+{
+    //if user is login
+    echo '<li class="nav-item"><a href="your_orders.php" class="nav-link active">Đơn Đặt</a> </li>';
+    echo '<li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> ' . $_SESSION["username"] . '</a>
                                 <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                     <ul class="dropdown-user" style="
                                     background-color: white !important;">
@@ -128,9 +120,9 @@ if(isset($_POST['submit'] ))
                                     </ul>
                                 </div>
                               </li>';
-                        }
+}
 
-                    ?>
+?>
                         
                     </ul>
                     
