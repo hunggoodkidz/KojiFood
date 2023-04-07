@@ -9,7 +9,8 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
@@ -30,14 +31,19 @@ session_start();
         <!-- .navbar -->
         <nav class="navbar navbar-dark">
             <div class="container">
-                <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse"
+                <button class="navbar-toggler hidden-lg-up" type="button"
+                    data-toggle="collapse"
                     data-target="#mainNavbarCollapse">&#9776;</button>
-                <a class="navbar-brand" href="index.php"> <img class="img-rounded" src="images/koji.png" alt=""> </a>
-                <div class="collapse navbar-toggleable-md  float-lg-right" id="mainNavbarCollapse">
+                <a class="navbar-brand" href="index.php"> <img
+                        class="img-rounded" src="images/koji.png" alt=""> </a>
+                <div class="collapse navbar-toggleable-md  float-lg-right"
+                    id="mainNavbarCollapse">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item"> <a class="nav-link active" href="index.php">Trang Chủ <span
+                        <li class="nav-item"> <a class="nav-link active"
+                                href="index.php">Trang Chủ <span
                                     class="sr-only">(current)</span></a> </li>
-                        <li class="nav-item"> <a class="nav-link active" href="restaurants.php">Nhà Hàng <span
+                        <li class="nav-item"> <a class="nav-link active"
+                                href="restaurants.php">Nhà Hàng <span
                                     class="sr-only"></span></a> </li>
 
 
@@ -76,17 +82,22 @@ session_start();
         <div class="top-links">
             <div class="container">
                 <ul class="row links">
-                    <li class="col-xs-12 col-sm-4 link-item active"><span>1</span><a href="restaurants.php">Chọn Nhà
-                            Hàng</a></li>
-                    <li class="col-xs-12 col-sm-4 link-item"><span>2</span><a href="#">Đặt món ăn yêu thích của bạn</a>
+                    <li class="col-xs-12 col-sm-4 link-item active">
+                        <span>1</span><a href="restaurants.php">Chọn Nhà
+                            Hàng</a>
                     </li>
-                    <li class="col-xs-12 col-sm-4 link-item"><span>3</span><a href="#">Giao hàng và thanh toán</a></li>
+                    <li class="col-xs-12 col-sm-4 link-item"><span>2</span><a
+                            href="#">Đặt món ăn yêu thích của bạn</a>
+                    </li>
+                    <li class="col-xs-12 col-sm-4 link-item"><span>3</span><a
+                            href="#">Giao hàng và thanh toán</a></li>
                 </ul>
             </div>
         </div>
         <!-- end:Top links -->
         <!-- start: Inner page hero -->
-        <div class="inner-page-hero bg-image" data-image-src="images/img/res.jpeg">
+        <div class="inner-page-hero bg-image"
+            data-image-src="images/img/res.jpeg">
             <div class="container"> </div>
             <!-- end:Container -->
         </div>
@@ -182,23 +193,34 @@ while ($rows = mysqli_fetch_array($ress))
             <div class="container">
                 <div class="row text-img-block text-xs-left">
                     <div class="container">
-                        <div class="col-xs-12 col-sm-6 hidden-xs-down right-image text-center">
-                            <figure> <img src="images/app.png" alt="Right Image"> </figure>
+                        <div
+                            class="col-xs-12 col-sm-6 hidden-xs-down right-image text-center">
+                            <figure> <img src="images/app.png"
+                                    alt="Right Image"> </figure>
                         </div>
                         <div class="col-xs-12 col-sm-6 left-text">
                             <h3>The Best Food Delivery App</h3>
-                            <p>Now you can make food happen pretty much wherever you are thanks to the free easy-to-use
+                            <p>Now you can make food happen pretty much wherever
+                                you are thanks to the free easy-to-use
                                 Food Delivery &amp; Takeout App.</p>
                             <div class="social-btns">
-                                <a href="#" class="app-btn apple-button clearfix">
-                                    <div class="pull-left"><i class="fa fa-apple"></i> </div>
-                                    <div class="pull-right"> <span class="text">Available on the</span> <span
-                                            class="text-2">App Store</span> </div>
+                                <a href="#"
+                                    class="app-btn apple-button clearfix">
+                                    <div class="pull-left"><i
+                                            class="fa fa-apple"></i> </div>
+                                    <div class="pull-right"> <span
+                                            class="text">Available on the</span>
+                                        <span class="text-2">App Store</span>
+                                    </div>
                                 </a>
-                                <a href="#" class="app-btn android-button clearfix">
-                                    <div class="pull-left"><i class="fa fa-android"></i> </div>
-                                    <div class="pull-right"> <span class="text">Available on the</span> <span
-                                            class="text-2">Play store</span> </div>
+                                <a href="#"
+                                    class="app-btn android-button clearfix">
+                                    <div class="pull-left"><i
+                                            class="fa fa-android"></i> </div>
+                                    <div class="pull-right"> <span
+                                            class="text">Available on the</span>
+                                        <span class="text-2">Play store</span>
+                                    </div>
                                 </a>
                             </div>
                         </div>
@@ -213,7 +235,8 @@ while ($rows = mysqli_fetch_array($ress))
             <!-- top footer statrs -->
             <div class="row top-footer">
                 <div class="col-xs-12 col-sm-3 footer-logo-block color-gray">
-                    <a href="#"> <img src="images/koji.png" alt="Footer logo"> </a> <span>Order Delivery &amp; Take-Out
+                    <a href="#"> <img src="images/koji.png" alt="Footer logo">
+                    </a> <span>Order Delivery &amp; Take-Out
                     </span>
                 </div>
                 <div class="col-xs-12 col-sm-2 about color-gray">
@@ -249,19 +272,24 @@ while ($rows = mysqli_fetch_array($ress))
                     <h5>Payment Options</h5>
                     <ul>
                         <li>
-                            <a href="#"> <img src="images/paypal.png" alt="Paypal"> Paypal</a>
+                            <a href="#"> <img src="images/paypal.png"
+                                    alt="Paypal"> Paypal</a>
                         </li>
                         <li>
-                            <a href="#"> <img src="images/mastercard.png" alt="Mastercard"> Mastercard </a>
+                            <a href="#"> <img src="images/mastercard.png"
+                                    alt="Mastercard"> Mastercard </a>
                         </li>
                         <li>
-                            <a href="#"> <img src="images/maestro.png" alt="Maestro"> Maestro </a>
+                            <a href="#"> <img src="images/maestro.png"
+                                    alt="Maestro"> Maestro </a>
                         </li>
                         <li>
-                            <a href="#"> <img src="images/stripe.png" alt="Stripe"> Stripe </a>
+                            <a href="#"> <img src="images/stripe.png"
+                                    alt="Stripe"> Stripe </a>
                         </li>
                         <li>
-                            <a href="#"> <img src="images/bitcoin.png" alt="Bitcoin"> Bitcoin </a>
+                            <a href="#"> <img src="images/bitcoin.png"
+                                    alt="Bitcoin"> Bitcoin </a>
                         </li>
                     </ul>
                 </div>

@@ -1,0 +1,1 @@
+phpformatter.arguments: ["--custom-config=/path/to/file/config.php_cs"]

@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <title>login</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
     <link rel='stylesheet prefetch'
         href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
-    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link rel='stylesheet prefetch'
+        href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
     <link rel="stylesheet" href="css/login.css">
 
@@ -38,21 +40,21 @@ if(isset($_POST['submit']))   // neu ma button submit thi
 	$username = $_POST['username'];  
 	$password = $_POST['password'];
 	
-	if(!empty($_POST["submit"]))   // if records were not empty
+	if(!empty($_POST["submit"]))   // Nếu không có giá trị rỗng trong form đăng nhập
      {
-	$loginquery ="SELECT * FROM users WHERE username='$username' && password='".md5($password)."'"; 
-	$result=mysqli_query($db, $loginquery);
-	$row=mysqli_fetch_array($result);
+	$loginquery ="SELECT * FROM users WHERE username='$username' && password='".md5($password)."'"; // Tạo truy vấn SQL để kiểm tra thông tin đăng nhập
+	$result=mysqli_query($db, $loginquery); // Thực hiện truy vấn SQL
+	$row=mysqli_fetch_array($result); // Lấy dữ liệu từ kết quả truy vấn
 	
 	                        if(is_array($row))  
 								{
                                     	$_SESSION["user_id"] = $row['u_id'];
-										$_SESSION["username"] = $row['username'];  // put user id into temp session
-										 header("refresh:1;url=index.php"); // redirect to index.php page
+										$_SESSION["username"] = $row['username'];
+										 header("refresh:1;url=index.php"); // Chuyển hướng người dùng đến trang chính trong 1 giây
 	                            } 
 							else
 							    {
-                                      	$message = "Invalid Username or Password!"; // throw error
+                                      	$message = "Invalid Username or Password!"; 
                                 }
 	 }
 	
@@ -83,9 +85,12 @@ if(isset($_POST['submit']))   // neu ma button submit thi
             </form>
         </div>
 
-        <div class="cta">Not registered?<a href="registration.php" style="color:#f30;"> Create an account</a></div>
+        <div class="cta">Not registered?<a href="registration.php"
+                style="color:#f30;"> Create an account</a></div>
     </div>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script
+        src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'>
+    </script>
 
 </body>
 

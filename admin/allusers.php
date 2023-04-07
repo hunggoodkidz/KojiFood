@@ -6,6 +6,7 @@ error_reporting(0);
 session_start();
 
 ?>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,21 +34,25 @@ session_start();
     <!-- Preloader - style you can find in spinners.css -->
     <div class="preloader">
         <svg class="circular" viewBox="25 25 50 50">
-			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+            <circle class="path" cx="50" cy="50" r="20" fill="none"
+                stroke-width="2" stroke-miterlimit="10" />
+        </svg>
     </div>
     <!-- Main wrapper  -->
     <div id="main-wrapper">
         <!-- header header  -->
-         <div class="header">
+        <div class="header">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon -->
-                        <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b>
+                        <b><img src="images/logo.png" alt="homepage"
+                                class="dark-logo" /></b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        <span><img src="images/logo-text.png" alt="homepage" class="dark-logo" /></span>
+                        <span><img src="images/logo-text.png" alt="homepage"
+                                class="dark-logo" /></span>
                     </a>
                 </div>
                 <!-- End Logo -->
@@ -55,13 +60,16 @@ session_start();
                     <!-- toggle and nav items -->
                     <ul class="navbar-nav mr-auto mt-md-0">
                         <!-- This is  -->
-                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted  " href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
-                  
-                     
-                       
+                        <li class="nav-item"> <a
+                                class="nav-link nav-toggler hidden-md-up text-muted  "
+                                href="javascript:void(0)"><i
+                                    class="mdi mdi-menu"></i></a> </li>
+
+
+
                     </ul>
                     <!-- User profile and search -->
-                  
+
                 </div>
             </nav>
         </div>
@@ -72,37 +80,49 @@ session_start();
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
-                   <ul id="sidebarnav">
+                    <ul id="sidebarnav">
                         <li class="nav-devider"></li>
                         <li class="nav-label">Home</li>
-                        <li> <a  href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
-                                
+                        <li> <a href="#" aria-expanded="false"><i
+                                    class="fa fa-tachometer"></i><span
+                                    class="hide-menu">Dashboard</span></a>
+
                         </li>
                         <li class="nav-label">Log</li>
-                        <li> <a  href="#" aria-expanded="false">  <span><i class="fa fa-user f-s-20 "></i></span><span class="hide-menu">Users</span></a>
-                                <li><a href="allusers.php">All Users</a></li>
-								<li><a href="add_users.php">Add Users</a></li>
-								
-                               
+                        <li> <a href="#" aria-expanded="false"> <span><i
+                                        class="fa fa-user f-s-20 "></i></span><span
+                                    class="hide-menu">Users</span></a>
+                        <li><a href="allusers.php">All Users</a></li>
+                        <li><a href="add_users.php">Add Users</a></li>
+
+
                         </li>
-                        <li> <a  href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Store</span></a>
-                            
-								<li><a href="allrestraunt.php">All Stores</a></li>
-								<li><a href="add_category.php">Add Category</a></li>
-                                <li><a href="add_restraunt.php">Add Restaurant</a></li>
-                                
+                        <li> <a href="#" aria-expanded="false"><i
+                                    class="fa fa-archive f-s-20 color-warning"></i><span
+                                    class="hide-menu">Store</span></a>
+
+                        <li><a href="allrestraunt.php">All Stores</a></li>
+                        <li><a href="add_category.php">Add Category</a></li>
+                        <li><a href="add_restraunt.php">Add Restaurant</a></li>
+
                         </li>
-                      <li> <a  href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Menu</span></a>
-								<li><a href="all_menu.php">All Menues</a></li>
-								<li><a href="add_menu.php">Add Menu</a></li>
-                              
-                                
+                        <li> <a href="#" aria-expanded="false"><i
+                                    class="fa fa-cutlery"
+                                    aria-hidden="true"></i><span
+                                    class="hide-menu">Menu</span></a>
+                        <li><a href="all_menu.php">All Menues</a></li>
+                        <li><a href="add_menu.php">Add Menu</a></li>
+
+
                         </li>
-						 <li> <a  href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Orders</span></a>
-								<li><a href="all_orders.php">All Orders</a></li>
-								  
+                        <li> <a href="#" aria-expanded="false"><i
+                                    class="fa fa-shopping-cart"
+                                    aria-hidden="true"></i><span
+                                    class="hide-menu">Orders</span></a>
+                        <li><a href="all_orders.php">All Orders</a></li>
+
                         </li>
-                         
+
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -115,8 +135,9 @@ session_start();
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Dashboard</h3> </div>
-               
+                    <h3 class="text-primary">Dashboard</h3>
+                </div>
+
             </div>
             <!-- End Bread crumb -->
             <!-- Container fluid  -->
@@ -124,14 +145,15 @@ session_start();
                 <!-- Start Page Content -->
                 <div class="row">
                     <div class="col-12">
-                        
-                       
+
+
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">All Registered users</h4>
-                             
+
                                 <div class="table-responsive m-t-40">
-                                    <table id="myTable" class="table table-bordered table-striped">
+                                    <table id="myTable"
+                                        class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Username</th>
@@ -139,16 +161,16 @@ session_start();
                                                 <th>Last-Name</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
-												<th>Address</th>												
-												 <th>Reg-Date</th>
-												  <th>Action</th>
-												 
+                                                <th>Address</th>
+                                                <th>Reg-Date</th>
+                                                <th>Action</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                           
-											
-											<?php
+
+
+                                            <?php
 												$sql="SELECT * FROM users order by u_id desc";
 												$query=mysqli_query($db,$sql);
 												
@@ -181,32 +203,33 @@ session_start();
 												
 											
 											?>
-                                             
-                                            
-                                           
+
+
+
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-						 </div>
-                      
-                            </div>
-                        </div>
                     </div>
+
                 </div>
-                <!-- End PAge Content -->
             </div>
-            <!-- End Container fluid  -->
-			
-			
-			
-			
-            <!-- footer -->
-            <footer class="footer"> © 2023 All rights reserved. Template designed by <a href="https://colorlib.com">Colorlib</a></footer>
-            <!-- End footer -->
         </div>
-        <!-- End Page wrapper  -->
+    </div>
+    <!-- End PAge Content -->
+    </div>
+    <!-- End Container fluid  -->
+
+
+
+
+    <!-- footer -->
+    <footer class="footer"> © 2023 All rights reserved. Template designed by <a
+            href="https://colorlib.com">Colorlib</a></footer>
+    <!-- End footer -->
+    </div>
+    <!-- End Page wrapper  -->
     </div>
     <!-- End Wrapper -->
     <!-- All Jquery -->
@@ -225,13 +248,27 @@ session_start();
 
 
     <script src="js/lib/datatables/datatables.min.js"></script>
-    <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
-    <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
-    <script src="js/lib/datatables/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-    <script src="js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-    <script src="js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
-    <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
-    <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    <script
+        src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js">
+    </script>
+    <script
+        src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js">
+    </script>
+    <script
+        src="js/lib/datatables/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js">
+    </script>
+    <script
+        src="js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js">
+    </script>
+    <script
+        src="js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js">
+    </script>
+    <script
+        src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js">
+    </script>
+    <script
+        src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js">
+    </script>
     <script src="js/lib/datatables/datatables-init.js"></script>
 </body>
 

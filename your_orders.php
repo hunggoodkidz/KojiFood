@@ -17,7 +17,8 @@ else
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
@@ -170,14 +171,19 @@ and also iPads specifically.
         <!-- .navbar -->
         <nav class="navbar navbar-dark">
             <div class="container">
-                <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse"
+                <button class="navbar-toggler hidden-lg-up" type="button"
+                    data-toggle="collapse"
                     data-target="#mainNavbarCollapse">&#9776;</button>
-                <a class="navbar-brand" href="index.php"> <img class="img-rounded" src="images/koji.png" alt=""> </a>
-                <div class="collapse navbar-toggleable-md  float-lg-right" id="mainNavbarCollapse">
+                <a class="navbar-brand" href="index.php"> <img
+                        class="img-rounded" src="images/koji.png" alt=""> </a>
+                <div class="collapse navbar-toggleable-md  float-lg-right"
+                    id="mainNavbarCollapse">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item"> <a class="nav-link active" href="index.php">Trang Chủ <span
+                        <li class="nav-item"> <a class="nav-link active"
+                                href="index.php">Trang Chủ <span
                                     class="sr-only">(current)</span></a> </li>
-                        <li class="nav-item"> <a class="nav-link active" href="restaurants.php">Nhà Hàng <span
+                        <li class="nav-item"> <a class="nav-link active"
+                                href="restaurants.php">Nhà Hàng <span
                                     class="sr-only"></span></a> </li>
 
 
@@ -219,7 +225,8 @@ and also iPads specifically.
 
         <!-- end:Top links -->
         <!-- start: Inner page hero -->
-        <div class="inner-page-hero bg-image" data-image-src="images/img/res.jpeg">
+        <div class="inner-page-hero bg-image"
+            data-image-src="images/img/res.jpeg">
             <div class="container"> </div>
             <!-- end:Container -->
         </div>
@@ -306,31 +313,45 @@ and also iPads specifically.
 
                                         ?>
                                         <tr>
-                                            <td data-column="Item"> <?php echo $row['title']; ?></td>
-                                            <td data-column="Quantity"> <?php echo $row['quantity']; ?></td>
-                                            <td data-column="price"><?php echo $row['price']; ?>đ</td>
+                                            <td data-column="Item">
+                                                <?php echo $row['title']; ?>
+                                            </td>
+                                            <td data-column="Quantity">
+                                                <?php echo $row['quantity']; ?>
+                                            </td>
+                                            <td data-column="price">
+                                                <?php echo $row['price']; ?>đ
+                                            </td>
                                             <td data-column="status">
                                                 <?php
                                                             $status = $row['status'];
                                                             if ($status == "" or $status == "NULL")
                                                             {
                                                 ?>
-                                                <button type="button" class="btn btn-info"
-                                                    style="font-weight:bold;">Đang xét duyệt</button>
+                                                <button type="button"
+                                                    class="btn btn-info"
+                                                    style="font-weight:bold;">Đang
+                                                    xét duyệt</button>
                                                 <?php
                                                 }
                                                 if ($status == "in process")
                                                 { ?>
-                                                <button type="button" class="btn btn-warning"><span
-                                                        class="fa fa-cog fa-spin" aria-hidden="true"></span>Đang vận
+                                                <button type="button"
+                                                    class="btn btn-warning"><span
+                                                        class="fa fa-cog fa-spin"
+                                                        aria-hidden="true"></span>Đang
+                                                    vận
                                                     chuyển!</button>
                                                 <?php
                                                                 }
                                                                 if ($status == "closed")
                                                                 {
                                                 ?>
-                                                <button type="button" class="btn btn-success"><span
-                                                        class="fa fa-check-circle" aria-hidden="true">Đã giao
+                                                <button type="button"
+                                                    class="btn btn-success"><span
+                                                        class="fa fa-check-circle"
+                                                        aria-hidden="true">Đã
+                                                        giao
                                                         hàng</button>
                                                 <?php
                                                                 }
@@ -339,18 +360,22 @@ and also iPads specifically.
                                                                 if ($status == "rejected")
                                                                 {
                                                 ?>
-                                                <button type="button" class="btn btn-danger"> <i
-                                                        class="fa fa-close"></i>Đã hủy</button>
+                                                <button type="button"
+                                                    class="btn btn-danger"> <i
+                                                        class="fa fa-close"></i>Đã
+                                                    hủy</button>
                                                 <?php
                                                                 }
                                                 ?>
                                             </td>
-                                            <td data-column="Date"> <?php echo $row['date']; ?></td>
+                                            <td data-column="Date">
+                                                <?php echo $row['date']; ?></td>
                                             <td data-column="Action"> <a
                                                     href="delete_orders.php?order_del=<?php echo $row['o_id']; ?>"
                                                     onclick="return confirm('Are you sure you want to cancel your order?');"
                                                     class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i
-                                                        class="fa fa-trash-o" style="font-size:16px"></i></a>
+                                                        class="fa fa-trash-o"
+                                                        style="font-size:16px"></i></a>
                                             </td>
                                         </tr>
                                         <?php
@@ -371,23 +396,34 @@ and also iPads specifically.
             <div class="container">
                 <div class="row text-img-block text-xs-left">
                     <div class="container">
-                        <div class="col-xs-12 col-sm-6 hidden-xs-down right-image text-center">
-                            <figure> <img src="images/app.png" alt="Right Image"> </figure>
+                        <div
+                            class="col-xs-12 col-sm-6 hidden-xs-down right-image text-center">
+                            <figure> <img src="images/app.png"
+                                    alt="Right Image"> </figure>
                         </div>
                         <div class="col-xs-12 col-sm-6 left-text">
                             <h3>The Best Food Delivery App</h3>
-                            <p>Now you can make food happen pretty much wherever you are thanks to the free easy-to-use
+                            <p>Now you can make food happen pretty much wherever
+                                you are thanks to the free easy-to-use
                                 Food Delivery &amp; Takeout App.</p>
                             <div class="social-btns">
-                                <a href="#" class="app-btn apple-button clearfix">
-                                    <div class="pull-left"><i class="fa fa-apple"></i> </div>
-                                    <div class="pull-right"> <span class="text">Available on the</span> <span
-                                            class="text-2">App Store</span> </div>
+                                <a href="#"
+                                    class="app-btn apple-button clearfix">
+                                    <div class="pull-left"><i
+                                            class="fa fa-apple"></i> </div>
+                                    <div class="pull-right"> <span
+                                            class="text">Available on the</span>
+                                        <span class="text-2">App Store</span>
+                                    </div>
                                 </a>
-                                <a href="#" class="app-btn android-button clearfix">
-                                    <div class="pull-left"><i class="fa fa-android"></i> </div>
-                                    <div class="pull-right"> <span class="text">Available on the</span> <span
-                                            class="text-2">Play store</span> </div>
+                                <a href="#"
+                                    class="app-btn android-button clearfix">
+                                    <div class="pull-left"><i
+                                            class="fa fa-android"></i> </div>
+                                    <div class="pull-right"> <span
+                                            class="text">Available on the</span>
+                                        <span class="text-2">Play store</span>
+                                    </div>
                                 </a>
                             </div>
                         </div>
@@ -402,7 +438,8 @@ and also iPads specifically.
             <!-- top footer statrs -->
             <div class="row top-footer">
                 <div class="col-xs-12 col-sm-3 footer-logo-block color-gray">
-                    <a href="#"> <img src="images/koji.png" alt="Footer logo"> </a> <span>Order Delivery &amp; Take-Out
+                    <a href="#"> <img src="images/koji.png" alt="Footer logo">
+                    </a> <span>Order Delivery &amp; Take-Out
                     </span>
                 </div>
                 <div class="col-xs-12 col-sm-2 about color-gray">
@@ -455,34 +492,45 @@ and also iPads specifically.
             <div class="row bottom-footer">
                 <div class="container">
                     <div class="row">
-                        <div class="col-xs-12 col-sm-3 payment-options color-gray">
+                        <div
+                            class="col-xs-12 col-sm-3 payment-options color-gray">
                             <h5>Payment Options</h5>
                             <ul>
                                 <li>
-                                    <a href="#"> <img src="images/paypal.png" alt="Paypal"> </a>
+                                    <a href="#"> <img src="images/paypal.png"
+                                            alt="Paypal"> </a>
                                 </li>
                                 <li>
-                                    <a href="#"> <img src="images/mastercard.png" alt="Mastercard"> </a>
+                                    <a href="#"> <img
+                                            src="images/mastercard.png"
+                                            alt="Mastercard"> </a>
                                 </li>
                                 <li>
-                                    <a href="#"> <img src="images/maestro.png" alt="Maestro"> </a>
+                                    <a href="#"> <img src="images/maestro.png"
+                                            alt="Maestro"> </a>
                                 </li>
                                 <li>
-                                    <a href="#"> <img src="images/stripe.png" alt="Stripe"> </a>
+                                    <a href="#"> <img src="images/stripe.png"
+                                            alt="Stripe"> </a>
                                 </li>
                                 <li>
-                                    <a href="#"> <img src="images/bitcoin.png" alt="Bitcoin"> </a>
+                                    <a href="#"> <img src="images/bitcoin.png"
+                                            alt="Bitcoin"> </a>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-xs-12 col-sm-4 address color-gray">
                             <h5>Address</h5>
-                            <p>Concept design of oline food order and deliveye,planned as restaurant directory</p>
-                            <h5>Phone: <a href="tel:+080000012222">080 000012 222</a></h5>
+                            <p>Concept design of oline food order and
+                                deliveye,planned as restaurant directory</p>
+                            <h5>Phone: <a href="tel:+080000012222">080 000012
+                                    222</a></h5>
                         </div>
-                        <div class="col-xs-12 col-sm-5 additional-info color-gray">
+                        <div
+                            class="col-xs-12 col-sm-5 additional-info color-gray">
                             <h5>Addition informations</h5>
-                            <p>Join the thousands of other restaurants who benefit from having their menus on TakeOff
+                            <p>Join the thousands of other restaurants who
+                                benefit from having their menus on TakeOff
                             </p>
                         </div>
                     </div>
