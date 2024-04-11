@@ -3,21 +3,16 @@ An Order Food website that allows customers to purchase food in
 the services through an online platform. Customers can shop from the comfort of
 their own homes, without having to physically visit a store
 
-[<img src="[https://github.com/hunggoodkidz/KojiFood/blob/master/images/koji.png]" align="left"
-width="200" height="200" hspace="10" vspace="10">](https://github.com/hunggoodkidz/KojiFood/blob/master/images/koji.png)  
+[<img src="[https://raw.githubusercontent.com/hunggoodkidz/KojiFood/master/images/koji.png]" align="left"
+width="200" height="200" hspace="10" vspace="10">](https://raw.githubusercontent.com/hunggoodkidz/KojiFood/master/images/koji.png)  
 ##
 ##
 ##
 
-## Features
 
-Main features: 
-
-- 
-
-Other features:
-
-- 
+## 
+##
+##
 
 ## Technologies
 PHP with HTML,CSS,Javascript with some database in MySQL connected with XAMMP
